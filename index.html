@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SF Neighbourhoods</title>
+	<title>SF Neighborhoods</title>
     <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js"></script>
 	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
@@ -14,25 +14,57 @@
 	<div id = "map"></div>
 	<script>
     	var map = L.map('map').setView([37.7833, -122.4167], 12);
-		
-		function addPopupsTemp(feature, layer){
-			if(feature.properties.LINK === null){
-				layer.bindPopup(feature.properties.name);
+
+		function addPopups(feature, layer){
+
+			if(feature.properties.inBI === "true"){
+				var image = document.createElement("IMG");
+				image.setAttribute("src", feature.properties.popImg);
+				image.setAttribute("width", "400");
+				image.setAttribute("alt", feature.properties.name);
+				
+				image.onclick = function() {
+					window.location.href = feature.properties.LINK;
+				};
+				
+				var popupOptions = {
+					'minWidth': '400px',
+					'maxWidth': '400px',
+				}
+				
+				layer.bindPopup(image, popupOptions);
 			}
 			else{
-				var nameLink = feature.properties.name.link(feature.properties.LINK);
-				layer.bindPopup(nameLink);
+				if(feature.properties.LINK == null){
+					layer.bindPopup(feature.properties.name, popupOptions);
+				}
+				else{
+					var nameLink = feature.properties.name.link(feature.properties.LINK);
+					layer.bindPopup(nameLink, popupOptions);
+				}
 			}
+			
 		}
+
 		
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/0d813137f5dd6adb23fce89915644212a4e4314b/hoodBorders", 
+		map.on('click', function(e) {
+			setView([e.latlng.lat, e.latlng.lng], 12)
+		});
+		
+		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/b9de1ed34aa0179dd403a65efcf7c99614bee248/hoodBorders", 
 				function(response) {
             console.log("response", response);
+			
             L.geoJson(response, {
 				style: function (feature) {
-					return {color: "blue"};
+					if(feature.properties.inBI === "true"){
+						return {color: "blue"};
+					}
+					else{
+						return {color : "transparent"};
+					}
 				},
-    		onEachFeature: addPopupsTemp
+				onEachFeature: addPopups
 			}).addTo(map);	 
         });
 
