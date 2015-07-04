@@ -51,14 +51,19 @@
 			setView([e.latlng.lat, e.latlng.lng], 12)
 		});
 		
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/b5f7e6cd55e3e8545ee6d27ca9352f5cf5866c51/hoodBorders", 
+		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hoodBorders", 
 				function(response) {
             console.log("response", response);
 			
             L.geoJson(response, {
 				style: function (feature) {
 					if(feature.properties.inBI === "true"){
-						return {color: "blue"};
+						var randColor;
+						var r = Math.floor(Math.random() * 255);
+						var g = Math.floor(Math.random() * 255);
+						var b = Math.floor(Math.random() * 255);
+						randColor= "rgb("+r+" ,"+g+","+ b+")"; 
+						return {color: randColor};
 					}
 					else{
 						return {color : "white"};
