@@ -11,27 +11,107 @@
 	</style>
 </head>
 <body>
+	<div id = "list"></div>
 	<div id = "map"></div>
 	<script>
+		//The map
     	var map = L.map('map').setView([37.7200, -122.4167], 12);
 
-		function addPopups(feature, layer){
+		//Style settings for polygons when hovered over
+		var highlightStyle = {
+			color: 'blue', 
+			weight: 3,
+			opacity: 0.6,
+			fillOpacity: 0.65,
+			fillColor: 'blue'
+		};
+		
+		//Default style settings for polygons not in Bold Italic
+		var inactiveStyle = {
+			color: 'transparent', 
+			fillColor: 'transparent'
+		};
+		
+		//Default style settings for polygons in Bold Italic
+		var activeStyle ={
+			color: 'blue', 
+			weight: 3,
+			opacity: 0.6,
+			fillOpacity: 0.3,
+			fillColor: 'blue'
+		};
 
+		//Loads an image referenced by link in hoodBorders.json popImg property
+		function loadImage(feature, layer){
+			var image = document.createElement("IMG");
+			image.setAttribute("src", feature.properties.popImg);
+			image.setAttribute("width", "400");
+			image.setAttribute("alt", feature.properties.name);
+			linkImage(feature, layer, image);
+			return image;
+		}
+		
+		//Links image to source article when clicked
+		function linkImage(feature, layer, image){
+			image.onclick = function() {
+				window.location.href = feature.properties.LINK;
+			};
+		}
+		
+		//Creates an area to put neighborhood name information
+		function createNameTool(){
+			var nameTool = $("<div></div>", {
+				id: ("nameTool"),
+				css: {
+					position: "absolute",
+					top: window.event.clientY,
+					left: window.event.clientX,
+					zIndex: 1002,
+					backgroundColor: "white",
+					padding: "8px",
+					border: "1px solid #ccc"
+				}
+			});
+			return nameTool;
+		}
+		
+		//Creates the text for neighborhood names to be put in the nameTool box
+		function createLabel(feature, layer){
+			var label = $("<div></div>", {
+				text: feature.properties.name,
+				css: {fontSize: "12px", marginBottom: "3px"}
+			});
+			return label;
+		}
+		
+		//Manages addition of hover events 
+		function addHoverEvents(feature, layer){
+			layer.on("mouseover", function(e){
+				layer.setStyle(highlightStyle);
+				var nameTool = createNameTool();
+				var label = createLabel(feature, layer);
+				label.appendTo(nameTool);
+				nameTool.appendTo("#map");
+			});
+			layer.on("mouseout", function(e){
+				$("#nameTool").remove();
+				if(feature.properties.inBI === "true"){
+					layer.setStyle(activeStyle);
+				}
+				else{
+					layer.setStyle(inactiveStyle);
+				}
+			});
+		}
+
+		//Manages information displayed in popup windows when clicked
+		function addPopups(feature, layer){
 			if(feature.properties.inBI === "true"){
-				var image = document.createElement("IMG");
-				image.setAttribute("src", feature.properties.popImg);
-				image.setAttribute("width", "400");
-				image.setAttribute("alt", feature.properties.name);
-				
-				image.onclick = function() {
-					window.location.href = feature.properties.LINK;
-				};
-				
+				var image = loadImage(feature, layer);
 				var popupOptions = {
 					'minWidth': '400px',
 					'maxWidth': '400px',
 				}
-				
 				layer.bindPopup(image, popupOptions);
 			}
 			else{
@@ -43,39 +123,38 @@
 					layer.bindPopup(nameLink, popupOptions);
 				}
 			}
-			
 		}
-
 		
-		map.on('click', function(e) {
-			setView([e.latlng.lat, e.latlng.lng], 12)
-		});
+		//Manages additional features for the map
+		function featureEvents(feature, layer){
+			addPopups(feature, layer);
+			addHoverEvents(feature, layer);
+		}
 		
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hoodBorders", 
-				function(response) {
+		//Creates polygons from json file and initializes their styles/features
+		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c"+
+				"968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hood"+
+				"Borders", function(response) {
             console.log("response", response);
-			
             L.geoJson(response, {
 				style: function (feature) {
 					if(feature.properties.inBI === "true"){
-						var randColor;
-						var r = Math.floor(Math.random() * 255);
-						var g = Math.floor(Math.random() * 255);
-						var b = Math.floor(Math.random() * 255);
-						randColor= "rgb("+r+" ,"+g+","+ b+")"; 
-						return {color: randColor};
+						return activeStyle;
 					}
 					else{
-						return {color : "transparent"};
+						return inactiveStyle;
 					}
 				},
-				onEachFeature: addPopups
+				onEachFeature: featureEvents
 			}).addTo(map);	 
         });
 
+		//Access token for Mapbox map tiles
 		L.mapbox.accessToken = 				
 			'pk.eyJ1IjoibGtvbmRyYXRjenlrIiwiYSI6ImVlNjAzNTYwYTBjZDMwYzg5YjViY2U0MTQ3MTMzYzU3In0.' +
 			'DDlX4LfLLK0iguFHb9OTqQ';
+			
+		//Adds the Mapbox tiles to the map
 		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' 
 			+ L.mapbox.accessToken , {
     			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
