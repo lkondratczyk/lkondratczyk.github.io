@@ -47,13 +47,13 @@
 			image.setAttribute("src", feature.properties.popImg);
 			image.setAttribute("width", "400");
 			image.setAttribute("id", feature.properties.name);
-			image.style.cursor = "pointer";
 			linkImage(feature, layer, image);
 			return image;
 		}
 		
 		//Links image to source article when clicked
 		function linkImage(feature, layer, image){
+			image.style.cursor = "pointer";
 			image.onclick = function() {
 				var url = feature.properties.LINK;
 				window.open(url, '_blank');
@@ -121,9 +121,8 @@
 					layer.bindPopup(feature.properties.name, popupOptions);
 				}
 				else{
-					var nameLink = feature.properties.name.link(feature.properties.LINK);
-					
-					layer.bindPopup(nameLink, popupOptions);
+					layer.bindPopup('<a href ='+ feature.properties.LINK +' target = "_blank">'+
+							feature.properties.name+'</a>', popupOptions);
 				}
 			}
 		}
