@@ -46,7 +46,8 @@
 			var image = document.createElement("IMG");
 			image.setAttribute("src", feature.properties.popImg);
 			image.setAttribute("width", "400");
-			image.setAttribute("alt", feature.properties.name);
+			image.setAttribute("id", feature.properties.name);
+			image.style.cursor = "pointer";
 			linkImage(feature, layer, image);
 			return image;
 		}
@@ -54,7 +55,8 @@
 		//Links image to source article when clicked
 		function linkImage(feature, layer, image){
 			image.onclick = function() {
-				window.location.href = feature.properties.LINK;
+				var url = feature.properties.LINK;
+				window.open(url, '_blank');
 			};
 		}
 		
@@ -120,6 +122,7 @@
 				}
 				else{
 					var nameLink = feature.properties.name.link(feature.properties.LINK);
+					
 					layer.bindPopup(nameLink, popupOptions);
 				}
 			}
