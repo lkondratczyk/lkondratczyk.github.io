@@ -14,7 +14,6 @@
     	#tabList { 
 			height: 650px; 
 			outline: #00FF00 dotted thick;
-			max-height: 100%;
 			overflow-y:scroll; 
 			position: fixed;
 		}
@@ -43,6 +42,8 @@
 
 	<script>
 	
+		var vp=document.createElement('viewport');
+		vp.setAttribute('content','width=device-width');
 		document.getElementById("map").style.width = ((screen.width / 4 * 3) - 50) + "px";
 		document.getElementById("tabList").style.width = ((screen.width / 4) - 50) + "px";
 		document.getElementById("map").style.height = (screen.height - 150) + "px";
@@ -87,6 +88,7 @@
 		});
 		
 		var articleList = [];
+		
 		var listingList = [];
 		
 		//Loads an image referenced by link in hoodBorders.json popImg property
@@ -197,12 +199,11 @@
 			//articleList.push(feature);
             L.geoJson(response, {
 				style: function (feature) {
-					if(feature.properties.inBI === "true"){
 					articleList.push(feature);
+					if(feature.properties.inBI === "true"){
 						return articleStyle;
 					}
 					else{
-						articleList.push(feature);
 						return inactiveStyle;
 					}
 				},
@@ -227,7 +228,7 @@
 			div.id = "test";
 			div.style.display = "block";
 			div.style.width = "100%";
-			div.style.height = "50px";
+			div.style.height = "10%";
 			div.style.background = "red";
 			div.style.color = "white";
 			div.innerHTML = feature.properties.name;
@@ -241,7 +242,7 @@
 			}
 		}
 	
-		L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
+		//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
 	</script>
 </body>
 </html>
