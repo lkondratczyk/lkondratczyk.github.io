@@ -6,16 +6,49 @@
 	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
 
-    <style>
-    	#map { height: 700px; }
+	<style>
+		#header {
+			height: 650px;
+		}
+    	#tabList { 
+			height: 650px; 
+			outline: #00FF00 dotted thick;
+			max-height: 100%;
+			overflow-y:scroll; 
+			position: fixed;
+		}
+    	#map { 
+			height: 650px; 
+		}
+		.Row
+		{
+			display: table;
+			table-layout: fixed; /*Optional*/
+			border-spacing: 10px; /*Optional*/
+		}
+		.Column
+		{
+			display: table-cell;
+		}
 	</style>
 </head>
 <body>
-	<div id = "list"></div>
-	<div id = "map"></div>
+	<header>
+	<div class = "Row">
+		<div class = "Column" id = "map" ></div>
+		<div class = "Column" id = "tabList" > Right </div>
+	</div>
+	</header>
+
 	<script>
+	
+		document.getElementById("map").style.width = ((screen.width / 4 * 3) - 50) + "px";
+		document.getElementById("tabList").style.width = ((screen.width / 4) - 50) + "px";
+		document.getElementById("map").style.height = (screen.height - 150) + "px";
+		document.getElementById("tabList").style.height = (screen.height - 150) + "px";
+		
 		//The map
-    	var map = L.map('map').setView([37.7200, -122.4167], 12);
+    	var map = L.map('map').setView([37.7270, -122.4367], 12);
 
 		//Style settings for polygons when hovered over
 		var highlightStyle = {
@@ -33,20 +66,34 @@
 		};
 		
 		//Default style settings for polygons in Bold Italic
-		var activeStyle ={
+		var articleStyle ={
 			color: 'blue', 
 			weight: 3,
 			opacity: 0.6,
 			fillOpacity: 0.3,
 			fillColor: 'blue'
 		};
+		
+		var badgerIcon = L.icon({
+			iconUrl: 'badgerIcon.png',
+			shadowUrl: 'badgerShadow.png',
 
+			iconSize:     [60, 60], // size of the icon
+			shadowSize:   [67, 42], // size of the shadow
+			iconAnchor:   [30, 60], // point of the icon which will correspond to marker's location
+			shadowAnchor: [0, 42],  // the same for the shadow
+			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+		});
+		
+		var articleList = [];
+		var listingList = [];
+		
 		//Loads an image referenced by link in hoodBorders.json popImg property
 		function loadImage(feature, layer){
 			var image = document.createElement("IMG");
 			image.setAttribute("src", feature.properties.popImg);
 			image.setAttribute("width", "400");
-			image.setAttribute("id", feature.properties.name);
+			image.setAttribute("alt", feature.properties.name);
 			linkImage(feature, layer, image);
 			return image;
 		}
@@ -62,7 +109,7 @@
 		
 		//Creates an area to put neighborhood name information
 		function createNameTool(){
-			var nameTool = $("<div></div>", {
+			var nameTool = $("<p></p>", {
 				id: ("nameTool"),
 				css: {
 					position: "absolute",
@@ -78,8 +125,8 @@
 		}
 		
 		//Creates the text for neighborhood names to be put in the nameTool box
-		function createLabel(feature, layer){
-			var label = $("<div></div>", {
+		function createLabel(feature){
+			var label = $("<p></p>", {
 				text: feature.properties.name,
 				css: {fontSize: "12px", marginBottom: "3px"}
 			});
@@ -91,14 +138,14 @@
 			layer.on("mouseover", function(e){
 				layer.setStyle(highlightStyle);
 				var nameTool = createNameTool();
-				var label = createLabel(feature, layer);
+				var label = createLabel(feature);
 				label.appendTo(nameTool);
 				nameTool.appendTo("#map");
 			});
 			layer.on("mouseout", function(e){
 				$("#nameTool").remove();
 				if(feature.properties.inBI === "true"){
-					layer.setStyle(activeStyle);
+					layer.setStyle(articleStyle);
 				}
 				else{
 					layer.setStyle(inactiveStyle);
@@ -133,24 +180,35 @@
 			addHoverEvents(feature, layer);
 		}
 		
+		function compare(a,b) {
+		  if (a.properties.name < b.properties.name)
+			return -1;
+		  if (a.properties.name > b.properties.name)
+			return 1;
+		  return 0;
+		}
+		
 		//Creates polygons from json file and initializes their styles/features
 		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c"+
 				"968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hood"+
 				"Borders", function(response) {
             console.log("response", response);
+			//articleList.push(feature);
             L.geoJson(response, {
 				style: function (feature) {
 					if(feature.properties.inBI === "true"){
-						return activeStyle;
+					articleList.push(feature);
+						return articleStyle;
 					}
 					else{
+						articleList.push(feature);
 						return inactiveStyle;
 					}
 				},
 				onEachFeature: featureEvents
-			}).addTo(map);	 
+			}).addTo(map).pipe(addTabs(articleList));	 
         });
-
+		
 		//Access token for Mapbox map tiles
 		L.mapbox.accessToken = 				
 			'pk.eyJ1IjoibGtvbmRyYXRjenlrIiwiYSI6ImVlNjAzNTYwYTBjZDMwYzg5YjViY2U0MTQ3MTMzYzU3In0.' +
@@ -159,9 +217,30 @@
 		//Adds the Mapbox tiles to the map
 		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' 
 			+ L.mapbox.accessToken , {
-    			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
+    			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Mapbox</a>',
    			 	maxZoom: 18,
-		}).addTo(map);	
+		}).addTo(map);
+
+		function createTab(feature){
+			var div = document.createElement("a");
+			div.id = "test";
+			div.style.display = "block";
+			div.style.width = "100%";
+			div.style.height = "50px";
+			div.style.background = "red";
+			div.style.color = "white";
+			div.innerHTML = feature.properties.name;
+			return div;
+		}
+
+		function addTabs(articleList) {
+			articleList.sort(compare);
+			for(i = 0; i < articleList.length; i++){
+				document.getElementById("tabList").appendChild(createTab(articleList[i]));
+			}
+		}
+	
+		L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
 	</script>
 </body>
 </html>
