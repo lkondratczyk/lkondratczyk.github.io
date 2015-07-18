@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<head> 
 	<title>SF Neighborhoods</title>
     <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js"></script>
 	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
@@ -41,7 +40,7 @@
 	
 		var vp=document.createElement('viewport');
 		vp.setAttribute('content','width=device-width');
-		screen.lockOrientation('landscape');
+		$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0" />');
 		document.getElementById("map").style.width = ((screen.width / 3 * 2) - 100) + "px";
 		document.getElementById("tabList").style.width = ((screen.width / 3)) + "px";
 		document.getElementById("map").style.height = (screen.height) + "px";
@@ -189,6 +188,25 @@
 		  return 0;
 		}
 		
+		function createTab(feature){
+			var div = document.createElement("a");
+			div.id = "test";
+			div.style.display = "block";
+			div.style.width = "100%";
+			div.style.height = "10%";
+			div.style.background = "red";
+			div.style.color = "white";
+			div.innerHTML = feature.properties.name;
+			return div;
+		}
+
+		function addTabs(articleList) {
+			articleList.sort(compare);
+			for(i = 0; i < articleList.length; i++){
+				document.getElementById("tabList").appendChild(createTab(articleList[i]));
+			}
+		}
+		
 		//Creates polygons from json file and initializes their styles/features
 		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c"+
 				"968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hood"+
@@ -220,27 +238,8 @@
     			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Mapbox</a>',
    			 	maxZoom: 18,
 		}).addTo(map);
-
-		function createTab(feature){
-			var div = document.createElement("a");
-			div.id = "test";
-			div.style.display = "block";
-			div.style.width = "100%";
-			div.style.height = "10%";
-			div.style.background = "red";
-			div.style.color = "white";
-			div.innerHTML = feature.properties.name;
-			return div;
-		}
-
-		function addTabs(articleList) {
-			articleList.sort(compare);
-			for(i = 0; i < articleList.length; i++){
-				document.getElementById("tabList").appendChild(createTab(articleList[i]));
-			}
-		}
 	
-		L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
+		//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
 	</script>
 </body>
 </html>
