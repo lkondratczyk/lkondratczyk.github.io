@@ -9,16 +9,13 @@
 
 	<style>
 		#header {
-			height: 650px;
 		}
     	#tabList { 
-			height: 650px; 
 			outline: #00FF00 dotted thick;
 			overflow-y:scroll; 
-			position: fixed;
+			position: absolute;
 		}
     	#map { 
-			height: 650px; 
 		}
 		.Row
 		{
@@ -44,10 +41,11 @@
 	
 		var vp=document.createElement('viewport');
 		vp.setAttribute('content','width=device-width');
-		document.getElementById("map").style.width = ((screen.width / 4 * 3) - 50) + "px";
-		document.getElementById("tabList").style.width = ((screen.width / 4) - 50) + "px";
-		document.getElementById("map").style.height = (screen.height - 150) + "px";
-		document.getElementById("tabList").style.height = (screen.height - 150) + "px";
+		screen.lockOrientation('landscape');
+		document.getElementById("map").style.width = ((screen.width / 3 * 2) - 100) + "px";
+		document.getElementById("tabList").style.width = ((screen.width / 3)) + "px";
+		document.getElementById("map").style.height = (screen.height) + "px";
+		document.getElementById("tabList").style.height = (screen.height) + "px";
 		
 		//The map
     	var map = L.map('map').setView([37.7270, -122.4367], 12);
@@ -242,7 +240,7 @@
 			}
 		}
 	
-		//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
+		L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
 	</script>
 </body>
 </html>
