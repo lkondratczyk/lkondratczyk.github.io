@@ -3,15 +3,16 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 	<title>SF Neighborhoods</title>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js"></script>
-	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js">
+			</script>
+	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" 
+			rel="stylesheet" />
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
 
 	<style>
 		#header {
 		}
     	#tabList { 
-			outline: #00FF00 dotted thick;
 			overflow-y:scroll; 
 			position: absolute;
 		}
@@ -21,7 +22,6 @@
 		{
 			display: table;
 			table-layout: fixed; /*Optional*/
-			border-spacing: 10px; /*Optional*/
 		}
 		.Column
 		{
@@ -33,25 +33,17 @@
 	<header>
 	<div class = "Row">
 		<div class = "Column" id = "map" ></div>
-		<div class = "Column" id = "tabList" > Right </div>
+		<div class = "Column" id = "tabList" ><h3><center><u>
+				Neighborhoods</u></center></h3></div>
 	</div>
 	</header>
 
 	<script>
-	
-		var vp=document.createElement('viewport');
-		vp.setAttribute('content','width=device-width');
-		$('head').append('<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />');
-		document.getElementById("map").style.width = (screen.width * 37 / 60) + "px";
-		document.getElementById("tabList").style.width = ((screen.width / 3)) + "px";
-		document.getElementById("map").style.height = (screen.height * 4 / 5) + "px";
-		document.getElementById("tabList").style.height = (screen.height * 4 / 5) + "px";
 		
-		//The map
-    	var map = L.map('map').setView([37.7270, -122.4367], 12);
-
+		/******SET STYLES BELOW******/
+		
 		//Style settings for polygons when hovered over
-		var highlightStyle = {
+		var highlightArea = {
 			color: 'blue', 
 			weight: 3,
 			opacity: 0.6,
@@ -60,13 +52,13 @@
 		};
 		
 		//Default style settings for polygons not in Bold Italic
-		var inactiveStyle = {
+		var inactiveArea = {
 			color: 'transparent', 
 			fillColor: 'transparent'
 		};
 		
 		//Default style settings for polygons in Bold Italic
-		var articleStyle ={
+		var articleArea ={
 			color: 'blue', 
 			weight: 3,
 			opacity: 0.6,
@@ -74,38 +66,116 @@
 			fillColor: 'blue'
 		};
 		
+		//Custom icon for map pins
 		var badgerIcon = L.icon({
 			iconUrl: 'badgerIcon.png',
 			shadowUrl: 'badgerShadow.png',
-
-			iconSize:     [60, 60], // size of the icon
-			shadowSize:   [67, 42], // size of the shadow
-			iconAnchor:   [30, 60], // point of the icon which will correspond to marker's location
-			shadowAnchor: [0, 42],  // the same for the shadow
-			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+			iconSize:     [60, 60],
+			shadowSize:   [67, 42], 
+			iconAnchor:   [30, 60], 
+			shadowAnchor: [0, 42], 
+			popupAnchor:  [-3, -76]
 		});
 		
-		var articleList = [];
+		//Sets style for tabs in their resting state
+		function setTabInactive(div) {
+			div.style.display = "block";
+			div.style.width = "100%";
+			div.style.height = screen.height / 5 + "px";
+			div.style.background = "white";
+			div.style.color = "black";
+		};
 		
-		var listingList = [];
+		//Sets style for tabs in their highlighted state
+		function setTabActive(div) {
+			div.style.display = "block";
+			div.style.width = "100%";
+			div.style.height = screen.height / 5 + "px";
+			div.style.background = "grey";
+			div.style.color = "black";
+		};
 		
-		//Loads an image referenced by link in hoodBorders.json popImg property
-		function loadImage(feature, layer){
-			var image = document.createElement("IMG");
-			image.setAttribute("src", feature.properties.popImg);
-			image.setAttribute("width", screen.width/3);
-			image.setAttribute("alt", feature.properties.name);
-			linkImage(feature, layer, image);
-			return image;
+		//Map width
+		document.getElementById("map").style.width = 
+				(screen.width * 37 / 60) + "px";
+		//Map height
+		document.getElementById("map").style.height = (
+				screen.height * 4 / 5) + "px";
+		
+		//Tab list width
+		document.getElementById("tabList").style.width = 
+				((screen.width / 3)) + "px";
+		//Tab list height
+		document.getElementById("tabList").style.height = 
+				(screen.height * 4 / 5) + "px";
+		
+		/******VARIABLES******/
+		
+		
+		//The map
+    	var map = L.map('map').setView([37.7270, -122.4367], 12);
+		
+		//Saves neighborhoods as objects to be sorted
+		var neighborhoodList = [];
+		
+		/******FUNCTIONS******/
+		
+		//For adding hover events to tabs
+		function tabHover(feature, div){
+			$(document).ready(function() {
+				$(div).hover(
+					//Function for hover in
+					function() { 
+						setTabActive(div);
+						map.eachLayer(function (layer) {
+							if(layer._polygonId === div.id){
+								layer.setStyle(highlightArea);
+							}
+						});						
+					},
+					//Function for hover out
+				    function() { 
+						setTabInactive(div);
+						map.eachLayer(function (layer) {
+							if(layer._polygonId === div.id){
+								if(feature.properties.inBI === "true"){
+									layer.setStyle(articleArea);
+								}
+								else{
+									layer.setStyle(inactiveArea);
+								}
+							}
+						});	
+					}
+				);
+			});
 		}
 		
-		//Links image to source article when clicked
-		function linkImage(feature, layer, image){
-			image.style.cursor = "pointer";
-			image.onclick = function() {
-				var url = feature.properties.LINK;
-				window.open(url, '_blank');
-			};
+		//Creates each entry for the list of tabs
+		function createTab(feature){
+			var div = document.createElement("a");
+			div.id = feature.properties.name.replaceAll(" ", "+");
+			setTabInactive(div);
+			div.innerHTML = feature.properties.name;
+			tabHover(feature, div);
+			//Adds click events to tabs
+			$(div).click(function(){
+				map.eachLayer(function (layer) {
+					if(layer._polygonId === div.id){
+						layer.openPopup();
+					}
+				});	
+			});
+			return div;
+		}
+
+		//Sorts tabs and adds them to the proper div
+		function addTabs(neighborhoodList) {
+			neighborhoodList.sort(compare);
+			for(i = 0; i < neighborhoodList.length; i++){
+				document.getElementById("tabList").appendChild(
+						createTab(neighborhoodList[i]));
+			}
 		}
 		
 		//Creates an area to put neighborhood name information
@@ -135,9 +205,9 @@
 		}
 		
 		//Manages addition of hover events 
-		function addHoverEvents(feature, layer){
+		function addAreaHover(feature, layer){
 			layer.on("mouseover", function(e){
-				layer.setStyle(highlightStyle);
+				layer.setStyle(highlightArea);
 				var nameTool = createNameTool();
 				var label = createLabel(feature);
 				label.appendTo(nameTool);
@@ -146,41 +216,55 @@
 			layer.on("mouseout", function(e){
 				$("#nameTool").remove();
 				if(feature.properties.inBI === "true"){
-					layer.setStyle(articleStyle);
+					layer.setStyle(articleArea);
 				}
 				else{
-					layer.setStyle(inactiveStyle);
+					layer.setStyle(inactiveArea);
 				}
 			});
 		}
-
-		//Manages information displayed in popup windows when clicked
+		
+		//For adding popups to neighborhoods
 		function addPopups(feature, layer){
+			var hrefCL = "http://sfbay.craigslist.org/search/apa?query=\"" + 
+					feature.properties.name.replaceAll(" ", "+")
+					.replaceAll("/", '"%7C"') + '"';
+			var linkCL = "<a href =" + hrefCL + " target = '_blank'>" +
+							"CraigsList Rentals</a>"
 			if(feature.properties.inBI === "true"){
-				var image = loadImage(feature, layer);
 				var popupOptions = {
 					'minWidth': screen.width/3 + 'px',
 					'maxWidth': screen.width/3 + 'px',
+					'autopan': true,
+					'keepInView': true
 				}
-				layer.bindPopup(image, popupOptions);
+				var image = "<a href=" + feature.properties.LINK + " target="+ 
+						"'_blank'><img src = " + feature.properties.popImg + 
+						" alt = " +	feature.properties.name+" width = " + 
+						screen.width/3 + "></img>";
+				layer.bindPopup(image + "<br/>" + linkCL, popupOptions);
 			}
 			else{
 				if(feature.properties.LINK == null){
-					layer.bindPopup(feature.properties.name, popupOptions);
+					layer.bindPopup('<h3>' + feature.properties.name + 
+							'</h3>' + linkCL);
 				}
 				else{
-					layer.bindPopup('<a href ='+ feature.properties.LINK +' target = "_blank">'+
-							feature.properties.name+'</a>', popupOptions);
+					layer.bindPopup('<h3>'+feature.properties.name+'<a href ='+
+							feature.properties.LINK + ' target = "_blank">' +
+							' (info) </a></h3>' + linkCL);
 				}
 			}
 		}
 		
-		//Manages additional features for the map
-		function featureEvents(feature, layer){
+		//Manages qualities added to each map featur
+		function onEachFeature(feature, layer){
+			layer._polygonId = feature.properties.name.replaceAll(" ", "+");
 			addPopups(feature, layer);
-			addHoverEvents(feature, layer);
+			addAreaHover(feature, layer);
 		}
 		
+		//A comparator for sorting an array of neighborhood objects
 		function compare(a,b) {
 		  if (a.properties.name < b.properties.name)
 			return -1;
@@ -189,57 +273,47 @@
 		  return 0;
 		}
 		
+		//Replaces characters in strings (needed for CraigsList query URLs)
+		String.prototype.replaceAll = function(str1, str2, ignore) {
+			return this.replace(new RegExp(str1.replace(
+					/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),
+					(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(
+					/\$/g,"$$$$"):str2);
+		} 
+		
 		//Creates polygons from json file and initializes their styles/features
 		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c"+
 				"968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hood"+
 				"Borders", function(response) {
             console.log("response", response);
-			//articleList.push(feature);
             L.geoJson(response, {
 				style: function (feature) {
-					articleList.push(feature);
+					neighborhoodList.push(feature);
 					if(feature.properties.inBI === "true"){
-						return articleStyle;
+						return articleArea;
 					}
 					else{
-						return inactiveStyle;
+						return inactiveArea;
 					}
 				},
-				onEachFeature: featureEvents
-			}).addTo(map).pipe(addTabs(articleList));	 
+				onEachFeature: onEachFeature
+			}).addTo(map).pipe(addTabs(neighborhoodList));	 
         });
 		
 		//Access token for Mapbox map tiles
 		L.mapbox.accessToken = 				
-			'pk.eyJ1IjoibGtvbmRyYXRjenlrIiwiYSI6ImVlNjAzNTYwYTBjZDMwYzg5YjViY2U0MTQ3MTMzYzU3In0.' +
-			'DDlX4LfLLK0iguFHb9OTqQ';
+			'pk.eyJ1IjoibGtvbmRyYXRjenlrIiwiYSI6ImVlNjAzNTYwYTBjZDMwYzg5YjViY' +
+			'2U0MTQ3MTMzYzU3In0.DDlX4LfLLK0iguFHb9OTqQ';
 			
 		//Adds the Mapbox tiles to the map
-		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' 
-			+ L.mapbox.accessToken , {
-    			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Mapbox</a>',
+		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{' + 
+				'y}.png?access_token=' + L.mapbox.accessToken , {
+    			attribution: '<a href="http://www.mapbox.com/about/maps/" ' + 
+						'target="_blank">Mapbox</a>',
    			 	maxZoom: 18,
 		}).addTo(map);
 
-		function createTab(feature){
-			var div = document.createElement("a");
-			div.id = "test";
-			div.style.display = "block";
-			div.style.width = "100%";
-			div.style.height = screen.height / 5 + "px";
-			div.style.background = "red";
-			div.style.color = "white";
-			div.innerHTML = feature.properties.name;
-			return div;
-		}
-
-		function addTabs(articleList) {
-			articleList.sort(compare);
-			for(i = 0; i < articleList.length; i++){
-				document.getElementById("tabList").appendChild(createTab(articleList[i]));
-			}
-		}
-	
+		//uncomment this to see Badger Maps icon
 		//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
 	</script>
 </body>
