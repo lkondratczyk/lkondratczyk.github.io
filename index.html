@@ -110,11 +110,11 @@
 				(screen.height * 4 / 5) + "px";
 		
 		/******VARIABLES******/
-				
+		
 		//The map
     	var map = L.map('map').setView([37.7270, -122.4367], 12);
 		
-		//Saves neighborhoods as objects to be sorted
+		//Saves neighborhoods as objects to be sorted & used later
 		var neighborhoodList = [];
 		
 		/******FUNCTIONS******/
@@ -156,6 +156,7 @@
 			div.id = feature.properties.name.replaceAll(" ", "+");
 			setTabInactive(div);
 			div.innerHTML = feature.properties.name;
+			div.style.cursor = "pointer";
 			tabHover(feature, div);
 			//Adds click events to tabs
 			$(div).click(function(){
