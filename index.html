@@ -30,13 +30,14 @@
 	</style>
 </head>
 <body>
-	<header>
-	<div class = "Row">
-		<div class = "Column" id = "map" ></div>
-		<div class = "Column" id = "tabList" ><h3><center><u>
-				Neighborhoods</u></center></h3></div>
+<div class = "Row">
+	<div class = "Column" id = "map" ></div>
+	<div class = "Column">
+		<div id = "header"><h3><center><u>
+				San Francisco Neighborhoods</u></center></h3></div>
+		<div id = "tabList" ></div>
 	</div>
-	</header>
+</div>
 
 	<script>
 		
@@ -95,6 +96,14 @@
 			div.style.color = "black";
 		};
 		
+		//header width
+		document.getElementById("header").style.width = 
+				((screen.width / 3)) + "px";
+		
+		//header height
+		document.getElementById("header").style.height = 
+				(screen.height / 13) + "px";
+		
 		//Map width
 		document.getElementById("map").style.width = 
 				(screen.width * 37 / 60) + "px";
@@ -107,7 +116,7 @@
 				((screen.width / 3)) + "px";
 		//Tab list height
 		document.getElementById("tabList").style.height = 
-				(screen.height * 4 / 5) + "px";
+				(screen.height * 7 / 10) + "px";
 		
 		/******VARIABLES******/
 		
