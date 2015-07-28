@@ -31,7 +31,7 @@
 		}
 		.Sidebar {
 			position : absolute;
-			top : 10%;
+			top : 5px;
 			left : 15px;
 			width : 30%;
 			height : 80%;
@@ -47,7 +47,7 @@
 	</div>
 	<script>
 		
-		/******SET STYLES BELOW******/
+		/******SET SOME STYLES BELOW******/
 	
 		//Style settings for polygons when hovered over
 		var highlightArea = {
@@ -100,7 +100,11 @@
 		/******VARIABLES******/
 		
 		//The map
-    	var map = L.map('map').setView([37.7470, -122.4867], 12);
+    	var map = L.map('map',{zoomControl: false}).setView([37.7470, -122.4867], 12);
+
+		L.control.zoom({
+     position:'bottomright'
+}).addTo(map);
 		
 		//Saves neighborhoods as objects to be sorted & used later
 		var neighborhoodList = [];
@@ -223,8 +227,7 @@
 				var popupOptions = {
 					'minWidth': screen.width/2 + 'px',
 					'maxWidth': screen.width/2 + 'px',
-					'autopan': true,
-					'keepInView': true
+					'autoPan' : true
 				}
 				var image = "<a href=" + feature.properties.LINK + " target="+ 
 						"'_blank'><img src = " + feature.properties.popImg + 
@@ -244,7 +247,7 @@
 				}
 			}
 		}
-		
+
 		//Manages qualities added to each map featur
 		function onEachFeature(feature, layer){
 			layer._polygonId = feature.properties.name.replaceAll(" ", "+");
