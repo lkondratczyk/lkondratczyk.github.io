@@ -11,38 +11,41 @@
 
 	<style>
 		#header {
+			width : 100%;
+			height : 15%;
 		}
     	#tabList { 
 			overflow-y:scroll; 
-			position: absolute;
+			width : 100%;
+			height : 85%;
 		}
-    	#map { 
+		.Map {
+			position : absolute;
+			top : 0;
+			right : 0;
+			width : 100%;
+			height : 100%;
 		}
-		.Row
-		{
-			display: table;
-			table-layout: fixed; /*Optional*/
-		}
-		.Column
-		{
-			display: table-cell;
+		.Sidebar {
+			position : absolute;
+			top : 15px;
+			left : 15px;
+			width : 30%;
+			height : 80%;
 		}
 	</style>
 </head>
 <body>
-<div class = "Row">
-	<div class = "Column" id = "map" ></div>
-	<div class = "Column">
+	<div class = "Map" id = "map"></div>
+	<div class = "Sidebar">
 		<div id = "header"><h3><center><u>
 				San Francisco Neighborhoods</u></center></h3></div>
 		<div id = "tabList" ></div>
 	</div>
-</div>
-
 	<script>
 		
 		/******SET STYLES BELOW******/
-		
+	
 		//Style settings for polygons when hovered over
 		var highlightArea = {
 			color: 'blue', 
@@ -50,6 +53,12 @@
 			opacity: 0.6,
 			fillOpacity: 0.65,
 			fillColor: 'blue'
+		};
+		
+		var infoArea = {
+			color: 'blue', 
+			weight: 3, 
+			fillColor: 'transparent'
 		};
 		
 		//Default style settings for polygons not in Bold Italic
@@ -82,46 +91,26 @@
 		function setTabInactive(div) {
 			div.style.display = "block";
 			div.style.width = "100%";
-			div.style.height = screen.height / 5 + "px";
+			div.style.height = "10%";
 			div.style.background = "white";
 			div.style.color = "black";
+			div.style.fontSize = "100%";
 		};
 		
 		//Sets style for tabs in their highlighted state
 		function setTabActive(div) {
 			div.style.display = "block";
 			div.style.width = "100%";
-			div.style.height = screen.height / 5 + "px";
+			div.style.height = "10%";
 			div.style.background = "grey";
 			div.style.color = "black";
+			div.style.fontSize = "100%";
 		};
-		
-		//header width
-		document.getElementById("header").style.width = 
-				((screen.width / 3)) + "px";
-		
-		//header height
-		document.getElementById("header").style.height = 
-				(screen.height / 13) + "px";
-		
-		//Map width
-		document.getElementById("map").style.width = 
-				(screen.width * 37 / 60) + "px";
-		//Map height
-		document.getElementById("map").style.height = (
-				screen.height * 4 / 5) + "px";
-		
-		//Tab list width
-		document.getElementById("tabList").style.width = 
-				((screen.width / 3)) + "px";
-		//Tab list height
-		document.getElementById("tabList").style.height = 
-				(screen.height * 7 / 10) + "px";
 		
 		/******VARIABLES******/
 		
 		//The map
-    	var map = L.map('map').setView([37.7270, -122.4367], 12);
+    	var map = L.map('map').setView([37.7470, -122.4867], 12);
 		
 		//Saves neighborhoods as objects to be sorted & used later
 		var neighborhoodList = [];
@@ -150,7 +139,7 @@
 									layer.setStyle(articleArea);
 								}
 								else{
-									layer.setStyle(inactiveArea);
+									layer.setStyle(infoArea);
 								}
 							}
 						});	
@@ -228,7 +217,7 @@
 					layer.setStyle(articleArea);
 				}
 				else{
-					layer.setStyle(inactiveArea);
+					layer.setStyle(infoArea);
 				}
 			});
 		}
@@ -291,9 +280,7 @@
 		} 
 		
 		//Creates polygons from json file and initializes their styles/features
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c"+
-				"968119a78e/raw/aa311590ccef10c91b83d93e10b94e72e82e5426/hood"+
-				"Borders", function(response) {
+		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/50dc84e629d0b86d33172697497494791fa01314/hoodBorders", function(response) {
             console.log("response", response);
             L.geoJson(response, {
 				style: function (feature) {
@@ -302,7 +289,7 @@
 						return articleArea;
 					}
 					else{
-						return inactiveArea;
+						return infoArea;
 					}
 				},
 				onEachFeature: onEachFeature
