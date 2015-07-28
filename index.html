@@ -13,6 +13,7 @@
 		#header {
 			width : 100%;
 			height : 15%;
+			font-size: 3vmin;
 		}
     	#tabList { 
 			overflow-y:scroll; 
@@ -48,22 +49,14 @@
 	
 		//Style settings for polygons when hovered over
 		var highlightArea = {
-			color: 'blue', 
-			weight: 3,
-			opacity: 0.6,
 			fillOpacity: 0.65,
 			fillColor: 'blue'
 		};
 		
+		//Default style settings for polygons not in Bold Italic
 		var infoArea = {
 			color: 'blue', 
 			weight: 3, 
-			fillColor: 'transparent'
-		};
-		
-		//Default style settings for polygons not in Bold Italic
-		var inactiveArea = {
-			color: 'transparent', 
 			fillColor: 'transparent'
 		};
 		
@@ -226,15 +219,15 @@
 							"CraigsList Rentals</a>"
 			if(feature.properties.inBI === "true"){
 				var popupOptions = {
-					'minWidth': screen.width/3 + 'px',
-					'maxWidth': screen.width/3 + 'px',
+					'minWidth': screen.width/2 + 'px',
+					'maxWidth': screen.width/2 + 'px',
 					'autopan': true,
 					'keepInView': true
 				}
 				var image = "<a href=" + feature.properties.LINK + " target="+ 
 						"'_blank'><img src = " + feature.properties.popImg + 
 						" alt = " +	feature.properties.name+" width = " + 
-						screen.width/3 + "></img>";
+						screen.width/2 + "></img>";
 				layer.bindPopup(image + "<br/>" + linkCL, popupOptions);
 			}
 			else{
@@ -275,7 +268,9 @@
 		} 
 		
 		//Creates polygons from json file and initializes their styles/features
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/50dc84e629d0b86d33172697497494791fa01314/hoodBorders", function(response) {
+		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c9"+
+				"68119a78e/raw/50dc84e629d0b86d33172697497494791fa01314/hoodBo"+
+				"rders", function(response) {
             console.log("response", response);
             L.geoJson(response, {
 				style: function (feature) {
