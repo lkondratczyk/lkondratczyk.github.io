@@ -7,68 +7,43 @@
 			</script>
 	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" 
 			rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
 
-	<style>
-		#header {
-			width : 100%;
-			height : 15%;
-			font-size: 3vmin;
-			text-align: center;
-			vertical-align: bottom;
-		}
-    	#tabList { 
-			overflow-y:scroll; 
-			width : 100%;
-			height : 85%;
-		}
-		.Map {
-			position : absolute;
-			top : 0;
-			right : 0;
-			width : 100%;
-			height : 100%;
-		}
-		.Sidebar {
-			position : absolute;
-			top : 5px;
-			left : 15px;
-			width : 30%;
-			height : 80%;
-		}
-	</style>
+
 </head>
 <body>
 	<div class = "Map" id = "map"></div>
 	<div class = "Sidebar">
-		<div id = "header"><h3><u>
-				San Francisco Neighborhoods</u></h3></div>
+		<div class = "sidebar-header">
+			<h3 class="sidebar-header-title">San Francisco Neighborhoods</h3>
+		</div>
 		<div id = "tabList" ></div>
 	</div>
 	<script>
 		
-		/******SET SOME STYLES BELOW******/
+		/******SET STYLES BELOW******/
 	
 		//Style settings for polygons when hovered over
 		var highlightArea = {
 			fillOpacity: 0.65,
-			fillColor: 'blue'
+			fillColor: '#4A90E2'
 		};
 		
 		//Default style settings for polygons not in Bold Italic
 		var infoArea = {
-			color: 'blue', 
+			color: '#4A90E2', 
 			weight: 3, 
 			fillColor: 'transparent'
 		};
 		
 		//Default style settings for polygons in Bold Italic
 		var articleArea ={
-			color: 'blue', 
+			color: '#4A90E2', 
 			weight: 3,
-			opacity: 0.6,
+			opacity: 1,
 			fillOpacity: 0.3,
-			fillColor: 'blue'
+			fillColor: '#4A90E2'
 		};
 		
 		//Custom icon for map pins
@@ -82,29 +57,17 @@
 			popupAnchor:  [-3, -76]
 		});
 		
-		//Sets style for tabs in their resting state
-		function setTabInactive(div) {
-			div.style.display = "block";
-			div.style.width = "100%";
-			div.style.height = "15%";
-			div.style.background = "white";
-			div.style.color = "black";
-			div.style.fontSize = "100%";
-		};
-		
-		//Sets style for tabs in their highlighted state
-		function setTabActive(div) {
-			div.style.background = "grey";
-		};
-		
 		/******VARIABLES******/
 		
 		//The map
-    	var map = L.map('map',{zoomControl: false}).setView([37.7470, -122.4867], 12);
+    	var map = L.map('map',{zoomControl: false}).setView([37.7470, -122.4567], 13);
 
+		var attributeTest = '<a href="http://www.mapbox.com/about/maps/" ' + 
+						'target="_blank"> map tiles &copy Mapbox</a>';
+		map.attributionControl.addAttribution("test");
 		L.control.zoom({
-     position:'bottomright'
-}).addTo(map);
+			position:'bottomright'
+		}).addTo(map);
 		
 		//Saves neighborhoods as objects to be sorted & used later
 		var neighborhoodList = [];
@@ -117,7 +80,6 @@
 				$(div).hover(
 					//Function for hover in
 					function() { 
-						setTabActive(div);
 						map.eachLayer(function (layer) {
 							if(layer._polygonId === div.id){
 								layer.setStyle(highlightArea);
@@ -126,7 +88,6 @@
 					},
 					//Function for hover out
 				    function() { 
-						setTabInactive(div);
 						map.eachLayer(function (layer) {
 							if(layer._polygonId === div.id){
 								if(feature.properties.inBI === "true"){
@@ -145,13 +106,15 @@
 		//Creates each entry for the list of tabs
 		function createTab(feature){
 			var div = document.createElement("a");
+			div.className = "neighborhood-menu-item";
 			div.id = feature.properties.name.replaceAll(" ", "+");
-			setTabInactive(div);
 			div.innerHTML = feature.properties.name;
 			div.style.cursor = "pointer";
 			tabHover(feature, div);
 			//Adds click events to tabs
 			$(div).click(function(){
+				$(".neighborhood-menu-item").removeClass("is-active");
+				$(this).addClass("is-active");
 				map.eachLayer(function (layer) {
 					if(layer._polygonId === div.id){
 						layer.openPopup();
@@ -171,6 +134,7 @@
 		}
 		
 		//Creates an area to put neighborhood name information
+		/*
 		function createNameTool(){
 			var nameTool = $("<p></p>", {
 				id: ("nameTool"),
@@ -186,8 +150,10 @@
 			});
 			return nameTool;
 		}
+		*/
 		
 		//Creates the text for neighborhood names to be put in the nameTool box
+		/*
 		function createLabel(feature){
 			var label = $("<p></p>", {
 				text: feature.properties.name,
@@ -195,15 +161,18 @@
 			});
 			return label;
 		}
+		*/
 		
 		//Manages addition of hover events 
 		function addAreaHover(feature, layer){
 			layer.on("mouseover", function(e){
 				layer.setStyle(highlightArea);
+				/*
 				var nameTool = createNameTool();
 				var label = createLabel(feature);
 				label.appendTo(nameTool);
 				nameTool.appendTo("#map");
+				*/
 			});
 			layer.on("mouseout", function(e){
 				$("#nameTool").remove();
@@ -221,38 +190,50 @@
 			var hrefCL = "http://sfbay.craigslist.org/search/apa?query=\"" + 
 					feature.properties.name.replaceAll(" ", "+")
 					.replaceAll("/", '"%7C"') + '"';
-			var linkCL = "<a href =" + hrefCL + " target = '_blank'>" +
-							"CraigsList Rentals</a>"
+			var linkCL = "<li><a href =" + hrefCL + " target = '_blank'>" +
+					"CraigsList Rentals</a></li>";
+			var linkTest = "<li><a href =" + "http://google.com" + 
+					" target = '_blank'>Google search (test)</a></li>";
+			var linkInfo = '<h3 class = "leaflet-popup-header">'+feature.properties.name+'<a href ='+
+					feature.properties.LINK + ' target = "_blank">' +
+					' (info) </a></h3>';
+			var description = "<p class ='leaflet-popup-description'>Insert description here</p>";
+			var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + linkCL + linkTest + "</ul>";
 			if(feature.properties.inBI === "true"){
 				var popupOptions = {
 					'minWidth': screen.width/2 + 'px',
 					'maxWidth': screen.width/2 + 'px',
 					'autoPan' : true
 				}
-				var image = "<a href=" + feature.properties.LINK + " target="+ 
+				var attribution = "<a class = 'leaflet-popup-content-attribution' href = 'http://www.thebolditalic.com/' target = '_blank'>Image &copy the Bold Italic</a>";
+				var image = "<div class ='leaflet-popup-contnet-img-div'><a href=" + feature.properties.LINK + " target="+ 
 						"'_blank'><img src = " + feature.properties.popImg + 
-						" alt = " +	feature.properties.name+" width = " + 
-						screen.width/2 + "></img>";
-				layer.bindPopup(image + "<br/>" + linkCL, popupOptions);
+						" alt = " +	feature.properties.name.replaceAll(" ", "-")+" width = " + 
+						screen.width/2 + ">" + attribution + "</img></a></div>";
+				layer.bindPopup("<div class = 'leaflet-popup-content'>" + image + 
+				"</div><br/>" + linkInfo + description + linkGroup, popupOptions);
 			}
 			else{
-				if(feature.properties.LINK == null){
-					layer.bindPopup('<h3>' + feature.properties.name + 
-							'</h3>' + linkCL);
-				}
-				else{
-					layer.bindPopup('<h3>'+feature.properties.name+'<a href ='+
-							feature.properties.LINK + ' target = "_blank">' +
-							' (info) </a></h3>' + linkCL);
-				}
+				layer.bindPopup(linkInfo + description + linkGroup);
 			}
 		}
-
-		//Manages qualities added to each map featur
+			
+		//Manages addition of hover events 
+		function addAreaClick(feature, layer){
+			var tabName = feature.properties.name.replaceAll(" ", "+");
+			layer.on("click", function(e){
+				$(".neighborhood-menu-item").removeClass("is-active");
+				$(document.getElementById(tabName)).addClass("is-active");
+				location.href = "#" + tabName;
+			});
+		}
+		
+		//Manages qualities added to each map feature
 		function onEachFeature(feature, layer){
 			layer._polygonId = feature.properties.name.replaceAll(" ", "+");
 			addPopups(feature, layer);
 			addAreaHover(feature, layer);
+			addAreaClick(feature, layer)
 		}
 		
 		//A comparator for sorting an array of neighborhood objects
@@ -300,7 +281,7 @@
 		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{' + 
 				'y}.png?access_token=' + L.mapbox.accessToken , {
     			attribution: '<a href="http://www.mapbox.com/about/maps/" ' + 
-						'target="_blank">Mapbox</a>',
+						'target="_blank"> map tiles &copy Mapbox</a>',
    			 	maxZoom: 18,
 		}).addTo(map);
 
