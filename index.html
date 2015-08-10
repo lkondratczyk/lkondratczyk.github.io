@@ -187,6 +187,7 @@
 		
 		//For adding popups to neighborhoods
 		function addPopups(feature, layer){
+			var closeButton = '<button id = "close-button" class = "leaflet-popup-close-button1" onclick="map.closePopup()" type="button"><p>close</p></button>';
 			var hrefCL = "http://sfbay.craigslist.org/search/apa?query=\"" + 
 					feature.properties.name.replaceAll(" ", "+")
 					.replaceAll("/", '"%7C"') + '"';
@@ -201,22 +202,26 @@
 			var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + linkCL + linkTest + "</ul>";
 			if(feature.properties.inBI === "true"){
 				var popupOptions = {
-					'minWidth': screen.width/2 + 'px',
-					'maxWidth': screen.width/2 + 'px',
-					'autoPan' : true
+					'minWidth': screen.width + 'px',
+					'maxWidth': screen.width + 'px',
+					'autoPan' : true,
+					'closeButton' : false
 				}
-				var attribution = "<a class = 'leaflet-popup-content-attribution' href = 'http://www.thebolditalic.com/' target = '_blank'>Image &copy the Bold Italic</a>";
-				var image = "<div class ='leaflet-popup-contnet-img-div'><a href=" + feature.properties.LINK + " target="+ 
+				var attribution = "<a class = 'leaflet-popup-content-attribution' href = 'http://www.thebolditalic.com/' target = '_blank'>image &copy \"the Bold Italic\"</a>";
+				var image = "<div class ='leaflet-popup-content-img-div'><a href=" + feature.properties.LINK + " target="+ 
 						"'_blank'><img src = " + feature.properties.popImg + 
 						" alt = " +	feature.properties.name.replaceAll(" ", "-")+" width = " + 
 						screen.width/2 + ">" + attribution + "</img></a></div>";
 				layer.bindPopup("<div class = 'leaflet-popup-content'>" + image + 
-				"</div><br/>" + linkInfo + description + linkGroup, popupOptions);
+				"</div><br/>" + closeButton + linkInfo + description + linkGroup, popupOptions);
 			}
 			else{
-				layer.bindPopup(linkInfo + description + linkGroup);
+				layer.bindPopup(closeButton + linkInfo + description + linkGroup);
 			}
+			
 		}
+		
+		$('#close-button').text("close");
 			
 		//Manages addition of hover events 
 		function addAreaClick(feature, layer){
