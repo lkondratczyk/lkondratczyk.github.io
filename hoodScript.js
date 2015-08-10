@@ -160,7 +160,7 @@
 		});
 	}
 	
-	//For adding popups to neighborhoods
+		//For adding popups to neighborhoods
 	function addPopups(feature, layer){
 		var closeButton = '<button id = "close-button" class = ' + 
 				'"leaflet-popup-close-button-custom" onclick= ' + 
@@ -181,6 +181,8 @@
 		var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + 
 				linkCL + linkTest + "</ul>";
 		var popupOptions = {
+			'minWidth': screen.width + 'px',
+			'maxWidth': screen.width + 'px',
 			'autoPan' : true,
 			'closeButton' : false
 		}
@@ -199,12 +201,13 @@
 					description + linkGroup, popupOptions);
 		}
 		else{
-			layer.bindPopup(closeButton + linkInfo + description + linkGroup, popupOptions);
+			layer.bindPopup(closeButton + linkInfo + description + linkGroup, 
+					popupOptions);
 		}
 		
 	}
 	
-	$('#close-button').text("close");
+	// $('#close-button').text("close");
 		
 	//Manages addition of hover events 
 	function addAreaClick(feature, layer){

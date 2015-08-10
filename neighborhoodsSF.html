@@ -1,49 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SF Neighbourhoods</title>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js"></script>
-	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+	<title>SF Neighborhoods</title>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js">
+			</script>
+	<link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css" 
+			rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>	
 
-    <style>
-    	#map { height: 700px; }
-	</style>
 </head>
 <body>
-	<div id = "map"></div>
-	<script>
-    	var map = L.map('map').setView([37.7833, -122.4167], 12);
-		
-		function addPopupsTemp(feature, layer){
-			if(feature.properties.LINK === null){
-				layer.bindPopup(feature.properties.name);
-			}
-			else{
-				var nameLink = feature.properties.name.link(feature.properties.LINK);
-				layer.bindPopup(nameLink);
-			}
-		}
-		
-		$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c968119a78e/raw/0d813137f5dd6adb23fce89915644212a4e4314b/hoodBorders", 
-				function(response) {
-            console.log("response", response);
-            L.geoJson(response, {
-				style: function (feature) {
-					return {color: "blue"};
-				},
-    		onEachFeature: addPopupsTemp
-			}).addTo(map);	 
-        });
-
-		L.mapbox.accessToken = 				
-			'pk.eyJ1IjoibGtvbmRyYXRjenlrIiwiYSI6ImVlNjAzNTYwYTBjZDMwYzg5YjViY2U0MTQ3MTMzYzU3In0.' +
-			'DDlX4LfLLK0iguFHb9OTqQ';
-		L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' 
-			+ L.mapbox.accessToken , {
-    			attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
-   			 	maxZoom: 18,
-		}).addTo(map);	
-	</script>
+	<div class = "Map" id = "map"></div>
+	<div class = "Sidebar">
+		<div class = "sidebar-header">
+			<h3 class="sidebar-header-title">San Francisco Neighborhoods</h3>
+		</div>
+		<div id = "tabList" ></div>
+	</div>
+	<script src="hoodScript.js" type = "text/javascript"></script>	
 </body>
 </html>
