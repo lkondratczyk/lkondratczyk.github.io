@@ -180,13 +180,11 @@
 				"Insert description here</p>";
 		var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + 
 				linkCL + linkTest + "</ul>";
+		var popupOptions = {
+			'autoPan' : true,
+			'closeButton' : false
+		}
 		if(feature.properties.inBI === "true"){
-			var popupOptions = {
-				'minWidth': screen.width + 'px',
-				'maxWidth': screen.width + 'px',
-				'autoPan' : true,
-				'closeButton' : false
-			}
 			var attribution = "<a class = 'leaflet-popup-content-" + 
 					"attribution' href = 'http://www.thebolditalic.com/' " + 
 					"target = '_blank'>image &copy \"the Bold Italic\"</a>";
@@ -201,7 +199,7 @@
 					description + linkGroup, popupOptions);
 		}
 		else{
-			layer.bindPopup(closeButton + linkInfo + description + linkGroup);
+			layer.bindPopup(closeButton + linkInfo + description + linkGroup, popupOptions);
 		}
 		
 	}
