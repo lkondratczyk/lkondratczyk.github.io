@@ -79,6 +79,7 @@
 		.leaflet-popup-content-img-div{
 		  position: relative;
 		  display: inline;
+		  width : 100%;
 		}
 	.leaflet-popup-close-button-custom{
 		position : absolute;

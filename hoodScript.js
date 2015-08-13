@@ -88,6 +88,7 @@
 		tabHover(feature, div);
 		//Adds click events to tabs
 		$(div).click(function(){
+			map.closePopup();
 			$(".neighborhood-menu-item").removeClass("is-active");
 			$(this).addClass("is-active");
 			map.eachLayer(function (layer) {
@@ -95,6 +96,9 @@
 					layer.openPopup();
 				}
 			});	
+		});
+		map.on('popupopen', function(e){
+			$(this).addClass("is-active");
 		});
 		return div;
 	}
@@ -168,18 +172,29 @@
 		var hrefCL = "http://sfbay.craigslist.org/search/apa?query=\"" + 
 				feature.properties.name.replaceAll(" ", "+")
 				.replaceAll("/", '"%7C"') + '"';
-		var linkCL = "<li><a href =" + hrefCL + " target = '_blank'>" +
+		var linkCL;
+		if(feature.properties.clHood === "true"){
+			linkCL = "<li><a href = 'http://sfbay.craigslist.org/search/sfc/a"+
+					"pa?" + feature.properties.clHref +"' target = '_blank'>" +
+					"CraigsList Rentals</a></li>";
+		}
+		else{
+			linkCL = "<li><a href =" + hrefCL + " target = '_blank'>" +
 				"CraigsList Rentals</a></li>";
-		var linkTest = "<li><a href =" + "http://google.com" + 
-				" target = '_blank'>Google search (test)</a></li>";
-		var linkInfo = '<h3 class = "leaflet-popup-header">' +
-				feature.properties.name + '<a href =' + 
-				feature.properties.LINK + ' target = "_blank">' +
-				' (info) </a></h3>';
-		var description = "<p class ='leaflet-popup-description'>" + 
-				"Insert description here</p>";
+		}
+		var hrefGoogle = "https://www.google.com/webhp?sourceid=chrome-instant"+
+				"&ion=1&espv=2&ie=UTF-8#q=%22" +
+				feature.properties.name.replaceAll(" ", "+")
+				.replaceAll("/", '%22+OR+%22') + '%22';
+		var linkGoogle = "<li><a href =" + hrefGoogle + " target = '_blank'>" +
+				"Google search</a></li>";
+		var hoodHeader = '<h3 class = "leaflet-popup-header">' +
+				feature.properties.name + '</h3>';
+		var linkInfo = '<li><a href =' + feature.properties.LINK + 
+				' target = "_blank">Neighborhood information</a></li>';
+		var description = "<p class ='leaflet-popup-description'></p>";
 		var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + 
-				linkCL + linkTest + "</ul>";
+				linkInfo + linkCL + linkGoogle + "</ul>";
 		var popupOptions = {
 			'minWidth': screen.width + 'px',
 			'maxWidth': screen.width + 'px',
@@ -189,7 +204,7 @@
 		if(feature.properties.inBI === "true"){
 			var attribution = "<a class = 'leaflet-popup-content-" + 
 					"attribution' href = 'http://www.thebolditalic.com/' " + 
-					"target = '_blank'>image &copy \"the Bold Italic\"</a>";
+					"target = '_blank'>image &copy The Bold Italic</a>";
 			var image = "<div class ='leaflet-popup-content-img-div'>" + 
 					"<a href=" + feature.properties.LINK + " target="+ 
 					"'_blank'><img src = " + feature.properties.popImg + 
@@ -197,11 +212,11 @@
 					" width = " + screen.width/2 + ">" + attribution + 
 					"</img></a></div>";
 			layer.bindPopup("<div class = 'leaflet-popup-content'>" + 
-					image +	"</div><br/>" + closeButton + linkInfo + 
+					image +	"</div><br/>" + closeButton + hoodHeader + 
 					description + linkGroup, popupOptions);
 		}
 		else{
-			layer.bindPopup(closeButton + linkInfo + description + linkGroup, 
+			layer.bindPopup(closeButton + hoodHeader + description + linkGroup, 
 					popupOptions);
 		}
 		
@@ -236,7 +251,7 @@
 	  return 0;
 	}
 	
-	//Replaces characters in strings (needed for CraigsList query URLs)
+	//Replaces characters in strings (needed for other web page query URLs)
 	String.prototype.replaceAll = function(str1, str2, ignore) {
 		return this.replace(new RegExp(str1.replace(
 				/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),
@@ -245,9 +260,8 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("https://gist.githubusercontent.com/lkondratczyk/51d43e0a7c9"+
-			"68119a78e/raw/50dc84e629d0b86d33172697497494791fa01314/hoodBo"+
-			"rders", function(response) {
+	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", 
+			function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
@@ -275,6 +289,10 @@
 					'target="_blank"> map tiles &copy Mapbox</a>',
 			maxZoom: 18,
 	}).addTo(map);
-
+	
+	map.on('popupclose', function(e){
+		$(".neighborhood-menu-item").removeClass("is-active");
+	});
+	
 	//uncomment this to see Badger Maps icon
 	//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
