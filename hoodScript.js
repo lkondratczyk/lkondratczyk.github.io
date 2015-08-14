@@ -199,7 +199,8 @@
 			'minWidth': screen.width + 'px',
 			'maxWidth': screen.width + 'px',
 			'autoPan' : true,
-			'closeButton' : false
+			'closeButton' : false,
+			'autoPanPaddingTopLeft' : L.point(175, 0)
 		}
 		if(feature.properties.inBI === "true"){
 			var attribution = "<a class = 'leaflet-popup-content-" + 
@@ -260,8 +261,9 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", 
-			function(response) {
+	$.getJSON("https://raw.githubusercontent.com/gadybadger/badger-linkbait-b"+
+			"olditalic/master/hoodBorders.json?token=AK1L5vf3Ypk7xv35D1hJDzOJ"+
+			"zxUHw596ks5V1glSwA%3D%3D", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
