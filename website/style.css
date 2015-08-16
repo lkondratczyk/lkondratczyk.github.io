@@ -1,0 +1,57 @@
+.wrapper{
+	margin : 5px auto 20px auto;
+	padding : 0;
+	height : 100%;
+}
+.header{
+	font-family: sans-serif;
+	color : white;
+
+	height : 100px;
+	border: 1px solid #3a3737;
+	background : black;
+}
+	.header-image{
+		float : left;
+		width : 40%;
+		height : 100%;
+		background : red;
+	}
+	.header-menu{
+		float : left;
+		top: 0;
+		right : 0;
+		width : 60%;
+		height : 100%;
+		background : blue;
+	}
+	.header-menu-item{
+		float : left;
+		height : 100%;
+		width : 33.333%;
+	}
+		.header-menu-item:hover{
+			background : gray;
+		}
+.main{
+	float : center;
+	width : 50%;
+}
+.left{
+	position : absolute;
+	color : white;
+	width : 20%;
+	height : 100%;
+	background : black;
+}
+.content{
+}
+.footer{
+	
+}
+.filler{
+	position : relative;
+	float : left;
+	width : 200px;
+	height : 100%;
+}
