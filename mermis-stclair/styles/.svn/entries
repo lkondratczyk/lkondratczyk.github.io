@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/styles"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="home.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="4daebbe06d6e9976edb0e8589cdea040"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="bio.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="e16bec3f6549305d9d252cf52eb25347"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="propertysearch.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="043c6a83b96491721aa4fcd5fca47118"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="content.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="15346d163368ec99883c9c86537b846a"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="testimonials.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="43342aee9c91e431d068cdf16bfa8cc8"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="properties.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="d2f5448bac27dc39e3d66c6c95fd5dde"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="nostyle.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="3d58bc7ac7a312714324b136669df939"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="whoweare.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="3dbb4842a077f2646688f994f44585ee"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="entree.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="dbced0804ea4e7717f69f592e6acc092"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="activities.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="44162b644114adfbe471fea81575f5d5"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="default.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="f477dd2c9c649ce4e8f4e91185fb93b2"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="information.css"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="b5ba0bc91594faacb3a85b32f085d953"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+</wc-entries>

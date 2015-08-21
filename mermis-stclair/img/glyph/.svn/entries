@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/img/glyph"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="btn_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="cb703f83f0640867c3b9f5b664822634"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_python_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="3ffc2f0512610c8813f76a00e243e4af"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_perl_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="7f2a3509d195057887bc9dca295ab392"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_cgi_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="ef6c4e20f9e4f2c4f29b80d0ae9ed1ff"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_asp_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="39af1c096f9a6219abe795da1480ae8c"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_bg-disabled.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="88f5dce7b9dea3e91ad109e8d16d960f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_coldfusion_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="96e29cd7d9182bb8a71b06e6668c545a"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_php_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="b42c5aaa823391dcefd4426c55000e5f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_ok_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="8e15e201bb416d46c476c1ee58813431"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="btn_ssi_bg.gif"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="2a61178df59e30155dc10eb2d99d662d"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+</wc-entries>

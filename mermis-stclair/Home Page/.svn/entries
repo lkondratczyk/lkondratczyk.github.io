@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/Home%20Page"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="H4 Horse Property.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="730dcb19056de260eb5f452028ff4dce"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="H1 Peabody Estate.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="09d15c03d1dde987102f60607517ed2a"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="H6 Barbara-Loula Riggs House.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="86f9eaf650069e7332a78000621ffc4f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="H3 East Mountain House.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="39411b35001ec35197be2da3daa735f2"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Thumbs.db"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="7f354fe8e1aac2f282947fcc21778483"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="H5 La Paz House.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="1fc6ef37fd6c18a68a845907949c20dd"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="H2 Hot Springs House.jpg"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="745231d3fc700695bfbeed2f837e5bf6"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+</wc-entries>

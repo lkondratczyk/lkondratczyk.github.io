@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/css"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="tabs.css"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="e939d53c99cdfc5f26a7a379a3ed8754"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="winxp.blue.css"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="83b6e2ab17f0df75b91d95030f1e98ba"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="style.css"
+   text-time="2008-09-10T03:36:44.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="9e9e65ef7fbb5b709a79ddd4a88298be"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+</wc-entries>

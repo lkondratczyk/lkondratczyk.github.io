@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/Properties%20Page"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="10. Ennisbrook Lot Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="425e3df2e1b5641c939c7a5e8f8a8a94"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:44.000000Z"/>
+<entry
+   committed-rev="814"
+   name="16. Oak Lane House.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c0ea978ebd7dcfea0b22e69f98a456a8"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:45.000000Z"/>
+<entry
+   committed-rev="814"
+   name="1. Channel Drive House.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="e708f0b4969b10d485236205a04b6fb4"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:45.000000Z"/>
+<entry
+   committed-rev="814"
+   name="4. East Beach Cottages Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="8b7d2a11d0f095dd7bf410b02804cde7"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:45.000000Z"/>
+<entry
+   committed-rev="814"
+   name="9. Ennisbrook House 1.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="0154a49ef31085d078f1430f774515bb"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:45.000000Z"/>
+<entry
+   committed-rev="814"
+   name="3. Ashley Lot.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="52a532e7dbbced0709149d7edf216fcc"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:45.000000Z"/>
+<entry
+   committed-rev="814"
+   name="12. Olive Condo Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="60e27101816f46961c5a8b9bfe694c24"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:46.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Website Project Information Sheet.doc"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="6f72605c96ea2d42a44816ed580457e5"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:46.000000Z"/>
+<entry
+   committed-rev="814"
+   name="7. Middle Road House.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="92aba1a723a7debba362147a541129e1"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:46.000000Z"/>
+<entry
+   committed-rev="814"
+   name="5. East Mountain House.JPG"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="183fa1a5d63f6914626528aecd800817"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="properties.html"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="d41d8cd98f00b204e9800998ecf8427e"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="14. Riviera House Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="b7a15003e65bc7c5b8053bf6b4a397cc"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="13. East Beach Condo.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c091243f2f7317270fb7be83432edbdc"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="15. Birnam Wood House.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="1030f079975b30acc4a50612bcc9c0c3"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="2. Ennisbrook House 2 Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="7fed8ddee0317ae483e0a9e853420480"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:47.000000Z"/>
+<entry
+   committed-rev="814"
+   name="6. Ennisbrook Casita Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="f5e339a6ccd139c1074dbfbeaa612366"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:48.000000Z"/>
+<entry
+   committed-rev="814"
+   name="8. East Mountain House 2 Listing.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="71b1ef8d3a1887e49fae41fce2dd8ba9"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:48.000000Z"/>
+<entry
+   committed-rev="814"
+   name="11. East Valley House.jpg"
+   text-time="2008-09-10T03:36:48.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="a7092b9bc643fa55078c4da627753afb"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:48.000000Z"/>
+</wc-entries>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/test/php"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="test.html"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="159076402261dcb4048d84c1cf359b7b"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+<entry
+   committed-rev="814"
+   name="test.php"
+   text-time="2008-09-10T03:36:43.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="8e0a7991b04addcb25229c90a36ee6ac"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:43.000000Z"/>
+</wc-entries>

@@ -1,0 +1,125 @@
+/*************************************************************************************
+
+ * Stylesheet for content pages, common styles
+
+ * 
+
+ * BakerSoftware 2007
+
+ ************************************************************************************/
+
+
+
+body
+
+{
+
+	padding:10px;
+
+	font-size:13px;
+
+	line-height:14px;
+
+	background:url(../images/blue_bg.gif) repeat #d8f4ff;
+
+}
+
+
+
+h1
+
+{
+
+	margin-bottom:8px;
+
+	font-family:"Times New Roman", Times, serif;
+
+	font-size:18px;
+
+	font-variant:small-caps;
+
+	color:#1b2754
+
+}
+
+
+
+h1.underlined
+
+{
+
+	padding-bottom:2px;
+
+	border-bottom:solid 1px #336699;
+
+}
+
+
+
+h1.underlined span
+
+{
+
+	font-size:15px;
+
+	font-style:italic;
+
+	font-variant:normal;
+
+	font-weight:normal;
+
+	color:#555;
+
+}
+
+
+
+h2
+
+{
+
+	margin-bottom:3px;
+
+	font-family:"Times New Roman", Times, serif;
+
+	font-size:16px;
+
+	font-variant:small-caps;
+
+	color:#333
+
+}
+
+
+
+p { margin:0 0 10px 0; }
+
+
+
+a
+
+{
+
+	font-size:10px;
+
+	/*color:#003399;*/
+
+	color:#336699;
+
+	text-decoration:underline;
+
+	cursor:pointer;
+
+}
+
+
+
+a:hover
+
+{
+
+	color:black;
+
+	text-decoration:underline
+
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/images/whoweare"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="house1.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="312dc0a17f4c91d1f2d7416e066bf97e"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="house2.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="ed4dcfce4a7470c37ec95d8f2ea24fcd"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="warren.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="d1ee660d8222efe3c8a2bf89cdfec2c0"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+</wc-entries>

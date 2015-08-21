@@ -1,0 +1,301 @@
+/*************************************************************************************
+
+ * Stylesheet for global styles
+
+ * 
+
+ * BakerSoftware 2007
+
+ ************************************************************************************/
+
+ 
+
+body
+
+{
+
+	font-size:13px;
+
+	line-height:15px;
+
+	background-color:#542146
+
+}
+
+
+
+#wrapper
+
+{
+
+	margin:-25px auto 20px auto;
+
+	padding:0;
+
+	width:920px;
+
+}
+
+
+
+#header h1 { display:none }
+
+
+
+#header p { display:none }
+
+
+
+#header
+
+{
+
+	width:840px;
+
+	height:177px;
+
+	background:url(../images/header.jpg) no-repeat left;
+
+}
+
+
+
+#left
+
+{
+
+	float:left;
+
+	margin-right:15px;
+
+	width:195px;
+
+	text-align:right
+
+}
+
+
+
+#content
+
+{
+
+	float:left;
+
+	width:615px;
+
+   background:url(../images/blue_bg.gif) repeat #d8f4ff;
+
+}
+
+
+
+#contentFrame
+
+{
+
+	margin:0;
+
+	padding:0;
+
+	width:615px;
+
+	height:550px;
+
+	border:none;
+
+	overflow:hidden;
+
+}
+
+#footer
+
+{
+
+	clear:both;
+
+	margin-top:15px;
+
+	padding:5px 15px 5px 5px;
+
+	color:#eee;
+
+	text-align:right;
+
+	background-color:#542146;
+
+}
+
+
+
+ul.nav
+
+{
+
+	margin-bottom:5px;
+
+	text-align:center;
+
+}
+
+ul.nav li { padding-bottom:10px }
+
+ul.nav li a
+
+{
+
+	padding-left:15px;
+
+	font-size:18px;
+
+	font-variant:small-caps;
+
+	color:#dddce8;
+
+	text-decoration:none;
+
+}
+
+ul.nav li a:hover
+
+{
+
+	color:#FFFFCC;
+
+	background:url(../images/bullet_left.gif) no-repeat left
+
+}
+
+ul.nav li a span { padding-right:15px }
+
+ul.nav li a:hover span { background:url(../images/bullet_right.gif) no-repeat right }
+
+
+
+div.joAnnMermis a {
+
+	display:block;
+
+	width:200px;
+
+	height:94px;
+
+	background:url(../images/JoAnnMermis2.gif) no-repeat center;
+
+}
+
+div.joAnnMermis span { display:none }
+
+div.joAnnMermis br { display:none }
+
+div.joAnnMermis a span { display:none }
+
+div.joAnnMermis, div.wesStClair { margin-bottom:25px }
+
+div.wesStClair a {
+
+	display:block;
+
+	width:200px;
+
+	height:94px;
+
+	background:url(../images/WesStClair2.gif) no-repeat center;
+
+}
+
+div.wesStClair span { display:none; }
+
+div.wesStClair br { display:none; }
+
+div.wesStClair a span { display:none; }
+
+
+
+address
+
+{
+
+	margin-top:8px;
+
+	font-weight:bold;
+
+	font-style:normal;
+
+	color:white;
+
+}
+
+.center { text-align:center; }
+
+
+
+br.clear { clear:both; }
+
+
+
+span.dot
+
+{
+
+	padding:0 3px;
+
+	font-size:16px;
+
+	line-height:13px;
+
+	font-weight:bold;
+
+	color:#333;
+
+	vertical-align:middle;
+
+}
+
+
+#content-props
+
+{
+	float:left;
+	width:575px;
+	background-color: #fff3e8;
+	padding: 20px;
+	text-align: center;
+	
+
+}
+
+.copyright 
+{
+	clear:both;
+
+	margin-top:15px;
+
+	padding:5px 15px 5px 5px;
+
+	color:#777;
+
+	text-align:center;
+
+
+}
+
+p.propertyInfo 
+{ margin-bottom: 30px;}
+
+.props-sold > img
+{margin: 10px;
+	width: 550px;}
+	
+.props-sold > p
+{font-size: 120%; line-height: 140%;}	
+
+p.propertyInfo > span
+{font-weight: bold;}
+
+.props-listed > img
+{margin: 10px;
+	width: 550px;}
+	
+.props-listed > p
+{font-size: 120%; line-height: 140%; width: 520px; margin-left: 20px;}

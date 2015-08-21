@@ -1,0 +1,32 @@
+/*************************************************************************************
+ * JavaScript for home.html
+ * 
+ * BakerSoftware 2007
+ ************************************************************************************/
+
+var SLIDE_COUNT = 6;		// Number of pics in slide show
+var counter = 1;			// Current slide
+var slidesImg;				// Image to show slides in
+var images = Array();
+
+window.onload = loader;
+
+function loader()
+{
+	initDHTMLAPI();
+	// Cache images
+	for (i = 0; i < SLIDE_COUNT; i++)
+		images[i] = "images/home/slide" + i + ".jpg";
+	cacheImages(images);
+	slidesImg = getRawObject("slideShow");
+	t = setInterval("changeSlide()", 3300);
+}
+
+function changeSlide()
+{
+	if (counter == 6)
+		counter = 0;
+
+	slidesImg.src = images[counter];
+	counter++;
+}

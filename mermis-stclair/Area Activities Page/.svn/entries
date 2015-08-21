@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/Area%20Activities%20Page"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="Court House.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="4f52de46c81f876773f1c0bc31d15b99"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Mission.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="030e81240d61b207d81aac621fe25c99"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="AREA ATIVITIES WEBSITE.doc"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="afea613beff32172f347ad2d57287065"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Lotus Land.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="a4a23dbda5c78b7af7b5e43a8cdaacd2"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Harbor &amp; Stern Wharf.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="7cc66fe5192a5b14e9874fa6ee8bc97d"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Thumbs.db"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c88d60c5db903cc3c038c1e6f2c0aa6c"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Arlington Theatre.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="31ab82206fb2c11027f632713bef530d"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:50.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Montecito Country Club.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c54cf6e3f749b877f293e719910cc7b1"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:50.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Lake Cachuma.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="9e61dfe5539e5741d696acd4e102b136"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:50.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Lobero Theatre.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="d6cc478135db058c7dd69063cd2ea3fc"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:50.000000Z"/>
+<entry
+   committed-rev="814"
+   name="Polo Club.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="a38b27beeec78c8388691e96f65d8ca9"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+</wc-entries>

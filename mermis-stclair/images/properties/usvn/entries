@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="861"
+   name=""
+   committed-date="2008-10-15T05:36:30.054863Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/images/properties"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="property0.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="67cc9202f3ed87ae29542628bbc0eae9"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="property1.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="5398931faab90a1f7db5c7ecab57deea"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:48.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property2.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="d617cc22b8794bd62d144f7fad378a5d"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="property3.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="a2e0b453db92be43dd5afd686a834fe6"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="861"
+   name="property4.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="5d9f3b6ea9fc00e4994ad753fb7ba6fe"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property5.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="74913c1ae4c7afbbb8b137e55f23806f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property6.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="04fd811e7b22599792736ac3a1a4472f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property7.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="574abbbc3bab2f56221d3e1470402c91"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property8.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="29c8a6c4c3d2d05aee74a950ac187399"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property9.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="a59a12d84a64c1464475dbfa53d81b95"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb0.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="bda792cab05ce209110c1e694de42242"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="thumb1.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="2d2dee61ab00692c3c241575df75ab20"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb2.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c0babcba2a6ec9633802bc054c7446df"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="thumb3.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="30472ab000cdaf1b5ce6dc5e7171a1de"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="861"
+   name="thumb4.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="49ceb536fa861a144c375cbff6bdea6a"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb5.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="9bfdb0a07c08676da12c92144c2a5b9f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb6.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="37fa66ba23f14e3583a7e34873bd1a41"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb7.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="82b5e6987d043d53990c623b9ad095cb"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb8.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="f990f3bb3a7c9b712a5eb363258c3537"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb9.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="f80ee98a16ae40e765cfa869756e1c7f"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb10.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="8c6a29fedef2b79b208f8c8eb26b1447"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb11.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="f91552781cf9c3a71baff386271f47e6"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb12.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="8590ebe113f31c61b2877195496a547a"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="thumb13.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="8c2450417aaa0de6d03a860cb80581fd"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb14.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="b9d50c1539aa136f0ca204a47438defb"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="thumb15.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="fe0130bb09a7d4a90a1715c40711e09b"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property10.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="13c69908b8c5c3c56dbaaa317c2b4bf0"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property11.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c91e3938cdc370830537b136c7060bf7"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property12.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="272e16d55d8d959a3571e2eab7af40db"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="861"
+   name="property13.jpg"
+   text-time="2008-10-15T05:36:49.000000Z"
+   committed-date="2008-10-15T05:36:30.054863Z"
+   checksum="8150c3393dd9afae787f1c15bf936c4b"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-10-15T05:36:49.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property14.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="3ba024d38a1fcbea3c8c899f447cbae3"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="property15.jpg"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="c9b9fe1566c6a86453c8122c218dc25b"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+</wc-entries>

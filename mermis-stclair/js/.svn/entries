@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="814"
+   name=""
+   committed-date="2008-09-10T03:34:40.920940Z"
+   url="https://svn.layoutsinc.com/svn/layoutsinc/legacy/mermis/trunk/js"
+   last-author="jschock"
+   kind="dir"
+   uuid="8c96322d-7c3e-0410-918a-c9a8ba4a0ec0"
+   revision="862"/>
+<entry
+   committed-rev="814"
+   name="activities.js"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="524c8ac242349bb51adc8acb5105af41"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="home.js"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="7c525c98d9fafd9ce701957722484b24"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="properties.js"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="3545dab35acafa47dba6643a845ff771"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+<entry
+   committed-rev="814"
+   name="global.js"
+   text-time="2008-09-10T03:36:51.000000Z"
+   committed-date="2008-09-10T03:34:40.920940Z"
+   checksum="9fcaa5b73dd9a0968b1e6d653e3577aa"
+   last-author="jschock"
+   kind="file"
+   prop-time="2008-09-10T03:36:51.000000Z"/>
+</wc-entries>
