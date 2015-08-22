@@ -261,7 +261,7 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("hoodBorders.json", function(response) {
+	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json?token=AK1L5kgAGuwJ9Gk8fHMP1tQOExoXlT39ks5V4jcIwA%3D%3D", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
