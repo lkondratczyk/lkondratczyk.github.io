@@ -168,7 +168,7 @@
 	function addPopups(feature, layer){
 		var closeButton = '<button id = "close-button" class = ' + 
 				'"leaflet-popup-close-button-custom" onclick= ' + 
-				'"map.closePopup()" type="button"><p>close</p></button>';
+				'"map.closePopup()" type="button"><p>x</p></button>';
 		var hrefCL = "http://sfbay.craigslist.org/search/sfc/apa?query=\"" + 
 				feature.properties.name.replaceAll(" ", "+")
 				.replaceAll("/", '"%7C"') + '"';
