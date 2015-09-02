@@ -17,7 +17,7 @@ function loader()
 	initDHTMLAPI();
 	// Cache images
 	for (i = 0; i < SLIDE_COUNT; ++i)
-		images[i] = "images/home/slide" + i + ".jpg";
+		images[i] = "images/home/slide" + i + ".jpg?1";
 		
 	cacheImages(images);
 	slidesImg = getRawObject("slideShow");
