@@ -168,7 +168,7 @@
 	function addPopups(feature, layer){
 		var closeButton = '<button id = "close-button" class = ' + 
 				'"leaflet-popup-close-button-custom" onclick= ' + 
-				'"map.closePopup()" type="button"><p>close</p></button>';
+				'"map.closePopup()" type="button">&times;</button>';
 		var hrefCL = "http://sfbay.craigslist.org/search/sfc/apa?query=\"" + 
 				feature.properties.name.replaceAll(" ", "+")
 				.replaceAll("/", '"%7C"') + '"';
@@ -205,7 +205,7 @@
 		if(feature.properties.inBI === "true"){
 			var attribution = "<a class = 'leaflet-popup-content-" + 
 					"attribution' href = 'http://www.thebolditalic.com/' " + 
-					"target = '_blank'>image &copy The Bold Italic</a>";
+					"target = '_blank'>Image &copy The Bold Italic</a>";
 			var image = "<div class ='leaflet-popup-content-img-div'>" + 
 					"<a href=" + feature.properties.LINK + " target="+ 
 					"'_blank'><img src = " + feature.properties.popImg + 
@@ -261,7 +261,7 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json?token=AK1L5kgAGuwJ9Gk8fHMP1tQOExoXlT39ks5V4jcIwA%3D%3D", function(response) {
+	$.getJSON("hoodBorders.json", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
@@ -296,3 +296,4 @@
 	
 	//uncomment this to see Badger Maps icon
 	//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
+

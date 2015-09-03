@@ -1,7 +1,12 @@
 .sidebar-header {
-  width : 100%;
-  text-align: center;
-  height: 80px;
+  height: 76px;
+}
+
+.header-image {
+  height: 56px;
+  width: 224px;
+  padding: 10px 20px;
+  background: #000;
 }
 
 .sidebar-header-title {
@@ -15,7 +20,7 @@
 #tabList { 
   overflow-y:scroll; 
   width : 100%;
-  height: calc(100% - 95px);
+  height: calc(100% - 145px);
 }
 
 .Map {
@@ -26,10 +31,10 @@
   height : 100%;
 }
 .Sidebar {
+  width: 264px;
   top: 0;
   left: 0;
   position : absolute;
-  width : 175px;
   height : 100%;
   background: #312d2d;
   overflow: hidden;
@@ -47,12 +52,15 @@
 }
 
 .neighborhood-menu-item:hover {
-  background: #fff;
+  background: #34aadc;
+  color: #fff;
 }
 
 .neighborhood-menu-item.is-active {
-  background: #fff;
-  color: #000;
+  background: #34aadc;
+  color: #fff;
+  border-top: 1px solid #1d61f0;
+  border-bottom: 1px solid #1d61f0;
 }
 
 .leaflet-popup {
@@ -73,25 +81,40 @@
 			  position : relative;
 			  width: 100%;
 			  z-index : 1;
-			  clip : rect(50px, 50px, 50px, 50px);
-			  overflow : hidden;
 			}
 
-			.leaflet-popup-content-attribution{
-			  background: #312d2d;
+			.leaflet-popup-content-attribution {
+			  background: #f6f6f6;
 			  position : absolute;
 			  bottom : 0;
 			  left : 0;
 			  z-index : 2;
+        padding: 2px 5px;
 			}
 
-	.leaflet-popup-close-button-custom{
+      .leaflet-popup-content-attribution a {
+        color: #b2b2b2;
+      }
+
+	.leaflet-popup-close-button-custom {
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: #fff;
 		position : absolute;
-		top : 0;
-		right: 0;
+    top: -10px;
+    right: -10px;
 		z-index : 2;
 		background-position: -3px -55px;
+    line-height: 0;
+    padding: 10px 5px 13px 5px;
+    font-size: 22px;
+    cursor: pointer;
 	}
+  .leaflet-popup-close-button-custom:hover {
+    border: 2px solid #ac3020;
+    background-color: #ac3020;
+    color: #fff;
+  }
 	.leaflet-popup-header{
 	}
 	.leaflet-popup-description{
@@ -99,4 +122,82 @@
 	.leaflet-popup-link-group{
 	}
 
+.footer-attribution {
+  background-color: #000;
+  padding: 5px 10px;
+}
 
+.footer-attribution-text {
+  color: #a7a5a4;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.footer-attribution-link, .footer-attribution-link:visited {
+  color: #34aadc;
+}
+
+.footer-attribution-link.mod-badger, .footer-attribution-link.mod-badger:visited {
+  color: #c23615;
+}
+
+/*
+ * CSS animated rainbow dividers of awesome 
+ * by Chris Heilmann @codepo8 and Lea Verou @leaverou 
+**/
+@-moz-keyframes rainbow {
+  from { background-position:top left; } 
+  to {background-position:top right; }
+}
+@-webkit-keyframes rainbow { 
+  from { background-position:top left; }  
+  to { background-position:top right; }  
+}
+@-o-keyframes rainbow { 
+  from { background-position:top left; }  
+  to { background-position:top right; }  
+}
+@-ms-keyframes rainbow { 
+  from { background-position:top left; }  
+  to { background-position:top right; }  
+}
+@-khtml-keyframes rainbow { 
+  from { background-position:top left; }  
+  to { background-position:top right; }  
+}
+@keyframes rainbow { 
+  from { background-position:top left; }  
+  to { background-position:top right; }  
+}
+#Castro{
+  color: #fff;
+  background-image:-webkit-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  background-image:-moz-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  background-image:-o-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  background-image:-ms-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  background-image:-khtml-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  background-image:linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
+                                          rgb(255, 255, 0), rgb(255, 0, 0) );
+  -moz-animation:rainbow 2.5s forwards linear infinite;
+  -webkit-animation:rainbow 2.5s forwards linear infinite;
+  -o-animation:rainbow 2.5s forwards linear infinite;
+  -khtml-animation:rainbow 2.5s forwards linear infinite;
+  -ms-animation:rainbow 2.5s forwards linear infinite;
+  -lynx-animation:rainbow 2.5s forwards linear infinite;
+  animation:rainbow 2.5s forwards linear infinite;
+  background-size:50% auto;
+}
+#tongue{position:cheek;}
+/* ^ OMG! An ID! That kills performance! */
+
+/*
+  .catchadream:after{content:'廌'}
+
+*/
+/* ^ uncomment to add unicorn */
