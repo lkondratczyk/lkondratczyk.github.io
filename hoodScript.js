@@ -1,5 +1,4 @@
-	
-	//Style settings for polygons when hovered over
+//Style settings for polygons when hovered over
 	var highlightArea = {
 		fillOpacity: 0.65,
 		fillColor: '#4A90E2'
@@ -166,35 +165,6 @@
 	
 		//For adding popups to neighborhoods
 	function addPopups(feature, layer){
-		var closeButton = '<button id = "close-button" class = ' + 
-				'"leaflet-popup-close-button-custom" onclick= ' + 
-				'"map.closePopup()" type="button">&times;</button>';
-		var hrefCL = "http://sfbay.craigslist.org/search/sfc/apa?query=\"" + 
-				feature.properties.name.replaceAll(" ", "+")
-				.replaceAll("/", '"%7C"') + '"';
-		var linkCL;
-		if(feature.properties.clHood === "true"){
-			linkCL = "<li><a href = 'http://sfbay.craigslist.org/search/sfc/a"+
-					"pa?" + feature.properties.clHref +"' target = '_blank'>" +
-					"CraigsList Rentals</a></li>";
-		}
-		else{
-			linkCL = "<li><a href =" + hrefCL + " target = '_blank'>" +
-				"CraigsList Rentals</a></li>";
-		}
-		var hrefGoogle = "https://www.google.com/webhp?sourceid=chrome-instant"+
-				"&ion=1&espv=2&ie=UTF-8#q=%22" +
-				feature.properties.name.replaceAll(" ", "+")
-				.replaceAll("/", '%22+OR+%22') + '%22';
-		var linkGoogle = "<li><a href =" + hrefGoogle + " target = '_blank'>" +
-				"Google search</a></li>";
-		var hoodHeader = '<h3 class = "leaflet-popup-header">' +
-				feature.properties.name + '</h3>';
-		var linkInfo = '<li><a href =' + feature.properties.LINK + 
-				' target = "_blank">Neighborhood information</a></li>';
-		var description = "<p class ='leaflet-popup-description'></p>";
-		var linkGroup = "<ul class = 'leaflet-popup-link-group'>" + 
-				linkInfo + linkCL + linkGoogle + "</ul>";
 		var popupOptions = {
 			'minWidth': screen.width + 'px',
 			'maxWidth': screen.width + 'px',
@@ -202,6 +172,12 @@
 			'closeButton' : false,
 			'autoPanPaddingTopLeft' : L.point(175, 0)
 		}
+		var closeButton = '<button id = "close-button" class = ' + 
+				'"leaflet-popup-close-button-custom" onclick= ' + 
+				'"map.closePopup()" type="button">&times;</button>';
+		var hoodHeader = '<h3 class = "leaflet-popup-header">' +
+				feature.properties.name + '</h3>';
+		var linkGroup = addLinks(feature, layer);
 		if(feature.properties.inBI === "true"){
 			var attribution = "<a class = 'leaflet-popup-content-" + 
 					"attribution' href = 'http://www.thebolditalic.com/' " + 
@@ -213,14 +189,46 @@
 					" width = " + screen.width/2 + ">" + attribution + 
 					"</img></a></div>";
 			layer.bindPopup("<div class = 'leaflet-popup-content'>" + 
-					image +	"</div><br/>" + closeButton + hoodHeader + 
-					description + linkGroup, popupOptions);
+					image +	"</div><br/>" + closeButton + "<div>" + hoodHeader + 
+					linkGroup + "</div>", popupOptions);
 		}
 		else{
-			layer.bindPopup(closeButton + hoodHeader + description + linkGroup, 
+			layer.bindPopup(closeButton + "<div>" + hoodHeader + linkGroup + "</div>", 
 					popupOptions);
 		}
-		
+	}
+	
+	function addLinks(feature, layer){
+		var linkGroup = "<ul class = 'leaflet-popup-link-group'>"; 
+		var linkInfo = '<li><a href =' + feature.properties.LINK + 
+		' target = "_blank">Neighborhood information</a></li>';
+		var linkCL;
+		if(feature.properties.clHood === "true"){
+			linkCL = "<li><a href = 'http://sfbay.craigslist.org/search/sfc/a"+
+					"pa?" + feature.properties.clHref +"' target = '_blank'>" +
+					"CraigsList Rentals</a></li>";
+		}
+		else{
+			var hrefCL = "http://sfbay.craigslist.org/search/sfc/apa?query=\"" + 
+				feature.properties.name.replaceAll(" ", "+")
+				.replaceAll("/", '"%7C"') + '"';
+			linkCL = "<li><a href =" + hrefCL + " target = '_blank'>" +
+				"CraigsList Rentals</a></li>";
+		}
+		linkGroup += linkInfo + linkCL;
+		var xtraLinks = feature.properties.xtraLinks;
+		if(!(typeof feature.properties.xtraLinks === 'undefined')){
+			for(var i = 0; i < xtraLinks.length; i++){
+				var linkObject = xtraLinks[i];
+				var label = linkObject.label;
+				var linkHref = linkObject.href;
+				var link = "<li><a href= '" + linkHref + "' target= '_blank'>" +
+						label + "</a></li>";
+				linkGroup += link;					
+			}
+		}
+		linkGroup += "</ul>";
+		return linkGroup;
 	}
 	
 	// $('#close-button').text("close");
@@ -261,7 +269,6 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-
 	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
@@ -297,4 +304,3 @@
 	
 	//uncomment this to see Badger Maps icon
 	//L.marker([37.7270, -122.4367], {icon: badgerIcon}).addTo(map);
-
