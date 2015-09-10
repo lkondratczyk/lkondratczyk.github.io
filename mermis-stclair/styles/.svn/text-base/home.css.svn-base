@@ -1,1 +1,0 @@
-/************************************************************************************* * Stylesheet for home.html *  * BakerSoftware 2007 ************************************************************************************/ body{	margin:0;	padding:0;}img#slideShow{	margin:0;	display:block;	width:615px;	height:505px;}
