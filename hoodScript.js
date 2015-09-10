@@ -224,7 +224,7 @@
 				linkGroup += "<h3 class = 'leaflet-popup-linkgroup'>" + 
 						linkObject.header + "</h3>";	
 				linkGroup += "<ul>";
-				for(var i = 0; i < xtraLinks.length; i++){
+				for(var i = 0; i < linkObject.length; i++){
 					var link = linkObject[i];
 					var linkLabel = link.label;
 					var linkHref = link.href;
