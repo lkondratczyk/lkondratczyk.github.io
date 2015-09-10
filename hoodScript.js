@@ -216,15 +216,20 @@
 				"CraigsList Rentals</a></li>";
 		}
 		linkGroup += linkInfo + linkCL;
+		linkGroup += "</ul>";
 		var xtraLinks = feature.properties.xtraLinks;
-		if(!(typeof feature.properties.xtraLinks === 'undefined')){
-			for(var i = 0; i < xtraLinks.length; i++){
-				var linkObject = xtraLinks[i];
-				var label = linkObject.label;
-				var linkHref = linkObject.href;
-				var link = "<li><a href= '" + linkHref + "' target= '_blank'>" +
-						label + "</a></li>";
-				linkGroup += link;					
+		if(!(typeof xtraLinks === 'undefined')){
+			for(var j = 0; !(typeof (xtraLinks[j])=== 'undefined'); j++){
+				linkGroup += "<h3>" + xtraLinks[j].header + "</h3><ul>";	
+				for(var i = 0; i < xtraLinks.length; i++){
+					var linkObject = xtraLinks[j];
+					var linkLabel = linkObject.label[i]};
+					var linkHref = linkObject.href[i];
+					var link = "<li><a href= '" + linkLabel + "' target= '_blank'>" +
+							label + "</a></li>";
+					linkGroup += link;			
+				}
+				linkGroup += "</ul>";	
 			}
 		}
 		linkGroup += "</ul>";
@@ -248,7 +253,7 @@
 		layer._polygonId = feature.properties.name.replaceAll(" ", "+");
 		addPopups(feature, layer);
 		addAreaHover(feature, layer);
-		addAreaClick(feature, layer);
+		addAreaClick(feature, layer)
 	}
 	
 	//A comparator for sorting an array of neighborhood objects
@@ -269,7 +274,7 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-		$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", function(response) {
+	$.getJSON("hoodBorders.json", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
