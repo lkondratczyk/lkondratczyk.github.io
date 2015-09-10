@@ -11,14 +11,32 @@
         "clHref": "nh=26",
         "xtraLinks": [
           {
-            "label": "test1",
-            "href": "https://www.google.com/"
+            "header": "Header 1",
+            "links": [
+              {
+                "label": "test1a",
+                "href": "https://www.google.com/"
+              },
+              {
+                "label": "test2a",
+                "href": "http://www.yahoo.com/"
+              }
+            ]
           },
           {
-            "label": "test2",
-            "href":  "http://www.yahoo.com/"
+            "header": "Header 2",
+            "links": [
+              {
+                "label": "test1b",
+                "href": "https://www.google.com/"
+              },
+              {
+                "label": "test2b",
+                "href": "http://www.yahoo.com/"
+              }
+            ]
           }
-        ]
+		    ]
       },
       "geometry": {
         "type": "Polygon",

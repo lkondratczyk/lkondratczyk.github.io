@@ -189,11 +189,11 @@
 					" width = " + screen.width/2 + ">" + attribution + 
 					"</img></a></div>";
 			layer.bindPopup("<div class = 'leaflet-popup-content'>" + 
-					image +	"</div><br/>" + closeButton + "<div>" + hoodHeader + 
+					image +	"</div>" + closeButton + "<div class='leaflet-popup-content-container'>" + hoodHeader + 
 					linkGroup + "</div>", popupOptions);
 		}
 		else{
-			layer.bindPopup(closeButton + "<div>" + hoodHeader + linkGroup + "</div>", 
+			layer.bindPopup(closeButton + "<div class='leaflet-popup-content-container'>" + hoodHeader + linkGroup + "</div>", 
 					popupOptions);
 		}
 	}
@@ -248,7 +248,7 @@
 		layer._polygonId = feature.properties.name.replaceAll(" ", "+");
 		addPopups(feature, layer);
 		addAreaHover(feature, layer);
-		addAreaClick(feature, layer)
+		addAreaClick(feature, layer);
 	}
 	
 	//A comparator for sorting an array of neighborhood objects
@@ -269,7 +269,7 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", function(response) {
+		$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
