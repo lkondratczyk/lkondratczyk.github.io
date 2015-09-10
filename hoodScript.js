@@ -225,7 +225,7 @@
 						linkObject.header + "</h3>";	
 				linkGroup += "<ul>";
 				for(var i = 0; i < linkObject.length; i++){
-					var link = linkObject[i];
+					var link = linkObject.links[i];
 					var linkLabel = link.label;
 					var linkHref = link.href;
 					var link = "<li><a href= '" + linkLabel + "' target= '_blank'>" +
