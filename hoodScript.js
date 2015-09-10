@@ -218,13 +218,14 @@
 		linkGroup += linkInfo + linkCL;
 		linkGroup += "</ul>";
 		var xtraLinks = feature.properties.xtraLinks;
-		if(!(typeof xtraLinks === 'undefined')){
+				if(!(typeof xtraLinks === 'undefined')){
 			for(var j = 0; !(typeof (xtraLinks[j])=== 'undefined'); j++){
-				linkGroup += "<h3>" + xtraLinks[j].header + "</h3><ul>";	
+				var linkObject = xtraLinks[j];
+				linkGroup += "<h3>" + linkObject.header + "</h3><ul>";	
 				for(var i = 0; i < xtraLinks.length; i++){
-					var linkObject = xtraLinks[j];
-					var linkLabel = linkObject.label[i]};
-					var linkHref = linkObject.href[i];
+					var link = linkObject[i];
+					var linkLabel = link.label;
+					var linkHref = link.href;
 					var link = "<li><a href= '" + linkLabel + "' target= '_blank'>" +
 							label + "</a></li>";
 					linkGroup += link;			
