@@ -221,7 +221,9 @@
 				if(!(typeof xtraLinks === 'undefined')){
 			for(var j = 0; !(typeof (xtraLinks[j])=== 'undefined'); j++){
 				var linkObject = xtraLinks[j];
-				linkGroup += "<h3>" + linkObject.header + "</h3><ul>";	
+				linkGroup += "<h3 class = 'leaflet-popup-linkgroup'>" + 
+						linkObject.header + "</h3>";	
+				linkGroup += "<ul>";
 				for(var i = 0; i < xtraLinks.length; i++){
 					var link = linkObject[i];
 					var linkLabel = link.label;
