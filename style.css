@@ -89,7 +89,7 @@
 			  bottom : 0;
 			  left : 0;
 			  z-index : 2;
-        padding: 2px 5px;
+			  padding: 2px 5px;
 			}
 
       .leaflet-popup-content-attribution a {
@@ -116,6 +116,8 @@
     color: #fff;
   }
 	.leaflet-popup-header{
+	}
+	.leaflet-popup-linkgroup{
 	}
 	.leaflet-popup-description{
 	}

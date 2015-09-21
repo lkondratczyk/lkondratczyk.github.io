@@ -218,19 +218,18 @@
 		linkGroup += linkInfo + linkCL;
 		linkGroup += "</ul>";
 		var xtraLinks = feature.properties.xtraLinks;
-				if(!(typeof xtraLinks === 'undefined')){
+		if(!(typeof xtraLinks === 'undefined')){
 			for(var j = 0; !(typeof (xtraLinks[j])=== 'undefined'); j++){
-				var linkObject = xtraLinks[j];
+ 
 				linkGroup += "<h3 class = 'leaflet-popup-linkgroup'>" + 
-						linkObject.header + "</h3>";	
+						xtraLinks[j].header + "</h3>";	
 				linkGroup += "<ul>";
-				for(var i = 0; i < linkObject.length; i++){
-					var link = linkObject.links[i];
+				for(var i = 0; !(typeof (xtraLinks[j].links[i])=== 'undefined'); i++){
+					var link = xtraLinks[j].links[i];
 					var linkLabel = link.label;
 					var linkHref = link.href;
-					var link = "<li><a href= '" + linkLabel + "' target= '_blank'>" +
-							label + "</a></li>";
-					linkGroup += link;			
+					linkGroup += "<li><a href= '" + linkHref + "' target= '_blank'>" +
+							linkLabel + "</a></li>";			
 				}
 				linkGroup += "</ul>";	
 			}
@@ -277,7 +276,7 @@
 	} 
 	
 	//Creates polygons from json file and initializes their styles/features
-	$.getJSON("hoodBorders.json", function(response) {
+	$.getJSON("https://raw.githubusercontent.com/lkondratczyk/lkondratczyk.github.io/master/hoodBorders.json", function(response) {
 		console.log("response", response);
 		L.geoJson(response, {
 			style: function (feature) {
