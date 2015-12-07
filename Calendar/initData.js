@@ -232,6 +232,37 @@ function constructCalendarData(academicYear, startDate, conditions){
 	data.candidateEntryData.conditions = TranslateConditions(data.candidateEntryData.conditions);
 	ExecuteProgram(data.candidateEntryData, startDate, data.candidateEntryData.conditions);
 
+	// data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
+		// "convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
+		// "springFinalsMonday", "commencementBeforeMemorial"]);
+					
+	var testPoss = getPossibilities(data.candidateEntryData);
+
+	var success = applyPossibilities(data.candidateEntryData, testPoss);
+	var bestCalendar = [];
+				
+	
+	if(success[0].length == 0){
+		console.log("IM SORRY");
+		console.log(success[1]);
+	}
+	else{
+		bestCalendar = success[0][0];
+
+	
+		for(var b = 0; b < success[0].length; b++){
+			bestCalendar = (bestCalendar.candidateEntryData.boundaries["FALL_START"] > success[0][b].candidateEntryData.boundaries["FALL_START"])?success[0][b]:bestCalendar;
+		}
+		for(var b = 0; b < success[0].length; b++){
+			if(bestCalendar.candidateEntryData.boundaries["FALL_START"] == success[0][b].candidateEntryData.boundaries["FALL_START"]){
+			}
+			bestCalendar = (bestCalendar.candidateEntryData.boundaries["SUMMER_START"] > success[0][b].candidateEntryData.boundaries["SUMMER_START"])?success[0][b]:bestCalendar;
+		}
+		console.log("BEST CALENDAR");
+		console.log(bestCalendar);
+		return data;
+	}
+
 	return data;
 }//end creation of data
 
@@ -591,6 +622,14 @@ function SetBoundaries(candidateEntry){
 
 function SetTypes(data){
 	var index = 0;
+	
+	for(var a = 0; a < data.length; a++){
+		if((data[a].dayOfWeek == "SAT") || (data[a].dayOfWeek == "SUN")){
+			data[a].type = "WKND";
+		}
+		data[a].type = "UNK";
+	}
+	
 	index += data.holidayMarkers["THANKSGIVING"];
 	assignSpecialHolidays(data, index);
 	
@@ -941,7 +980,7 @@ function checkRules(data){
 		while(data[start].dayOfWeek == "SUN"){
 			start ++;
 		}
-		if(data[start.dayOfWeek] != "MON"){
+		if(data[start].dayOfWeek != "MON"){
 			errors.push("FALL FINALS DON'T START MONDAY");
 		}
 	}
@@ -950,14 +989,14 @@ function checkRules(data){
 		while(data[start].dayOfWeek == "SUN"){
 			start ++;
 		}
-		if(data[start.dayOfWeek] != "MON"){
+		if(data[start].dayOfWeek != "MON"){
 			errors.push("SPRING FINALS DON'T START MONDAY");
 		}
 	}
 	if(softRules[9] == 1){
 		var start = data.monthMarkers["JUNE"];
-		while((data[start].tye != "HOLI") && ( data[start].tye != "COMM")){
-			start ++;
+		while((data[start].type != "HOLI") && ( data[start].type != "COMM")){
+			start --;
 		}
 		if(data[start].tye == "COMM"){
 			errors.push("COMMENCEMENT NOT BEFORE MEMORIDAL DAY");
@@ -1199,13 +1238,14 @@ function applyPossibilities(data, possibilites){
 	//most important thing is holidays are set
 	if(countPossibilities(possibilites) != 0){
 		var softErrors = ["UNEVEN ID/WEEKDAY BALANCE", "FALL DOESN'T START ON MONDAY", "UNDER 1 WEEK SUMMER TO FALL", "CONV NOT FRIDAY BEFORE FALL START",
-			"NOT 3 AWD BEFORE THANKSGIVING", "COMMENCEMENT NOT TUES TIL FRI", "CESAR CHAVEZ NOT IN SPRING BREAK"];
+			"NOT 3 AWD BEFORE THANKSGIVING", "COMMENCEMENT NOT TUES TIL FRI", "CESAR CHAVEZ NOT IN SPRING BREAK", "FALL FINALS DON'T START MONDAY", 
+			"SPRING FINALS DON'T START MONDAY", "COMMENCEMENT NOT BEFORE MEMORIDAL DAY"];
 		var options = [];
 		var conflicts = [];	
 		var errors = [];		
 		var testCount = 0;
 		var smallestHardError = [];
-		var possibleCalendar;
+		var returnCalendar;
 		
 		var px = filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length - 
 			filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isType, ["HOLI"]).length;
@@ -1246,32 +1286,20 @@ function applyPossibilities(data, possibilites){
 											if(testCount % 100 == 0)
 												console.log(testCount);
 											
-											data.boundaries["FALL_START"] = 0 + possibilites[0][a];						
-											data.boundaries["FALL_END"] = 0 + possibilites[1][b];
-											data.boundaries["WINTER_END"] = 0 + possibilites[2][c];
-											data.boundaries["SPRING_START"] = 0 + possibilites[2][c];
-											data.boundaries["SPRING_END"] = 0 + possibilites[3][d];
-											data.boundaries["SUMMER_START"] = 0 + possibilites[4][e];
-											data.boundaries["SUMMER_END"] = 0 + data.boundaries["SUMMER_START"] + (12 * 7);
 											
+											data.boundaries["FALL_START"] = 0 + possibilites[0][a];						
+												data.boundaries["FALL_END"] = 0 + possibilites[1][b];
+												data.boundaries["WINTER_END"] = 0 + possibilites[2][c];
+												data.boundaries["SPRING_START"] = 0 + possibilites[2][c];
+												data.boundaries["SPRING_END"] = 0 + possibilites[3][d];
+												data.boundaries["SUMMER_START"] = 0 + possibilites[4][e];
+												data.boundaries["SUMMER_END"] = 0 + data.boundaries["SUMMER_START"] + (12 * 7);
+												
 											SetTypes(data);
 											updateData(data);
 											errors = checkRules(data);
 
 											if(errors.length != 0){
-												possibleCalendar = constructCalendarData(
-													data[0].year, 
-													data[data.previousYearEnd],
-													intToAnne(data.conditions));
-													
-												possibleCalendar = possibleCalendar.candidateEntryData;						
-												possibleCalendar.boundaries["FALL_START"] = 0 + possibilites[0][a];						
-												possibleCalendar.boundaries["FALL_END"] = 0 + possibilites[1][b];
-												possibleCalendar.boundaries["WINTER_END"] = 0 + possibilites[2][c];
-												possibleCalendar.boundaries["SPRING_START"] = 0 + possibilites[2][c];
-												possibleCalendar.boundaries["SPRING_END"] = 0 + possibilites[3][d];
-												possibleCalendar.boundaries["SUMMER_START"] = 0 + possibilites[4][e];
-												possibleCalendar.boundaries["SUMMER_END"] = 0 + possibleCalendar.boundaries["SUMMER_START"] + (12 * 7);
 												if((filterNewErrors(softErrors, errors).length == 0) && ((errors.length < conflicts.length) || (conflicts.length == 0))){
 													conflicts = errors;
 												}	
@@ -1286,6 +1314,23 @@ function applyPossibilities(data, possibilites){
 												
 											}
 											else{
+												
+												
+												possibleCalendar = constructCalendarData(
+													data[0].year, 
+													data[data.previousYearEnd],
+													intToAnne(data.conditions));
+													
+												possibleCalendar.candidateEntryData.boundaries["FALL_START"] = 0 + possibilites[0][a];						
+												possibleCalendar.candidateEntryData.boundaries["FALL_END"] = 0 + possibilites[1][b];
+												possibleCalendar.candidateEntryData.boundaries["WINTER_END"] = 0 + possibilites[2][c];
+												possibleCalendar.candidateEntryData.boundaries["SPRING_START"] = 0 + possibilites[2][c];
+												possibleCalendar.candidateEntryData.boundaries["SPRING_END"] = 0 + possibilites[3][d];
+												possibleCalendar.candidateEntryData.boundaries["SUMMER_START"] = 0 + possibilites[4][e];
+												possibleCalendar.candidateEntryData.boundaries["SUMMER_END"] = 0 + possibleCalendar.boundaries["SUMMER_START"] + (12 * 7);
+												SetTypes(data);
+												updateData(data);
+												
 												options.push(possibleCalendar);
 											}
 											
