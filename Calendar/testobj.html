@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="initData.js"></script>
+</head>
+<body>
+			<script type = "text/javascript">
+			
+				var start = (new Date()).getMinutes();
+				var softErrors = ["UNEVEN ID/WEEKDAY BALANCE", "FALL DOESN'T START ON MONDAY", "UNDER 1 WEEK SUMMER TO FALL", "CONV NOT FRIDAY BEFORE FALL START",
+					"NOT 3 AWD BEFORE THANKSGIVING", "COMMENCEMENT NOT TUES TIL THURS", "CESAR CHAVEZ NOT IN SPRING BREAK"];
+				//console.log((new Date()).getMilliseconds());
+				var earliestStart = {month: "AUG", dayNumber: 21};
+				
+				/*
+					"weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", "convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", 
+					"CesarChavezInSpringBreak", "fallFinalsMonday", "springFinalsMonday", "commencementBeforeMemorial"
+				*/
+				
+				
+				var startYear = 2015;
+				var data;
+				var errors= 0
+				for(var yay = 0; yay < 200; yay++){
+					console.log("YEAR:");
+					console.log(startYear + yay);
+					data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
+						"convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
+						"springFinalsMonday", "commencementBeforeMemorial"]);
+					
+					data = data.candidateEntryData;
+					console.log(data);
+					var testPoss = getPossibilities(data);
+					console.log(testPoss);
+					var success = applyPossibilities(data, testPoss);
+					console.log(success);
+					if(success[0].length == 0){
+						console.log("ERROR IN YEAR");
+						console.log(startYear + yay);
+						errors++;
+					}
+
+				}
+				console.log(errors);
+				
+		
+	
+/*				
+
+				//console.log(applyPossibilities(data, testPoss));
+				
+				//CUSTOM CALENDAR
+				//console.log(checkRules(data));
+				
+				//"FALL DOESN'T START ON MONDAY"
+				//"UNDER 1 WEEK SUMMER TO FALL"
+				//"CONV NOT FRIDAY BEFORE FALL START"
+				
+				//console.log(applyPossibilities(data, [
+					//[GetDayIndex(data, {month: "AUG", dayNumber: 28})],
+					//[GetDayIndex(data, {month: "DEC", dayNumber: 13})], 
+					//[GetDayIndex(data, {month: "JAN", dayNumber: 22})], 
+					//[GetDayIndex(data, {month: "MAY", dayNumber: 14}, true)], 
+					//[GetDayIndex(data, {month: "MAY", dayNumber: 29}, true)]]));
+					
+					console.log(countPossibilities(testPoss));
+					
+					
+					//console.log(checkRules(data));
+				var annesValue = applyPossibilities(data, testPoss);
+				console.log(annesValue);
+				
+				var bestCalendar = [];
+				
+				
+				if(annesValue[0].length == 0){
+					console.log("IM SORRY");
+					console.log(annesValue[1]);
+				}
+				else{
+					bestCalendar = annesValue[0][0];
+
+				
+					for(var b = 0; b < annesValue[0].length; b++){
+						bestCalendar = (bestCalendar.boundaries["FALL_START"] > annesValue[0][b].boundaries["FALL_START"])?annesValue[0][b]:bestCalendar;
+					}
+					for(var b = 0; b < annesValue[0].length; b++){
+						if(bestCalendar.boundaries["FALL_START"] == annesValue[0][b].boundaries["FALL_START"]){
+						}
+						bestCalendar = (bestCalendar.boundaries["SUMMER_START"] > annesValue[0][b].boundaries["SUMMER_START"])?annesValue[0][b]:bestCalendar;
+					}
+					console.log("BEST CALENDAR");
+					console.log(bestCalendar);	
+
+					//console.log("ALL CALENDARS");
+					/*
+					for(var b = 0; b < annesValue[0].length; b++){
+						console.log();
+						console.log(b);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["FALL_START"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["FALL_END"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["WINTER_START"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["WINTER_END"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["SPRING_START"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["SPRING_END"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["SUMMER_START"]]);
+						console.log(annesValue[0][b][annesValue[0][b].boundaries["SUMMER_END"]]);
+					}
+					*/
+				
+				
+				
+				
+				/*
+				console.log(filter(data, data.boundaries["FALL_START"], data.boundaries["FALL_END"], isDay, ["SAT", "SUN"]).length +
+					filter(data, data.boundaries["FALL_START"], data.boundaries["FALL_END"], isType, ["HOLI"]).length);
+					
+				console.log(filter(data, data.boundaries["SPRING_START"], data.boundaries["SPRING_END"], isDay, ["SAT", "SUN"]).length +
+					filter(data, data.boundaries["SPRING_START"], data.boundaries["SPRING_END"], isType, ["HOLI"]).length);
+*/
+				
+				
+			//var testFri = data.reportCounts["INST_FALL_AND_FRI"] = filter(filter(data, data.boundaries["FALL_START"], data.boundaries["FALL_END"], isDay, ["FRI"]),
+			//0, filter(data, data.boundaries["FALL_START"], data.boundaries["FALL_END"], isDay, ["FRI"]).length, isType, ["INST"]);
+
+				//fallStarts, fallEnds, winterEnds, springEnds, summerStarts;
+				
+				/*
+				for(var i = 0; i < 5; i++){
+					console.log(i);
+					for(var j = 0; j < testPoss[i].length; j++){
+						console.log(testPoss[i][j]);
+					}
+				}
+				console.log(countPossibilities(testPoss));
+				var findMaxPoss = [];
+				
+				for(var i = 2015; i < 2015 + 200; i++){
+					var testData = constructCalendarData(i);
+					findMaxPoss.push(countPossibilities(getPossibilities(testData.candidateEntryData)));
+				}
+				console.log(Math.max.apply(Math, findMaxPoss));
+				
+				console.log(data[data.boundaries["SUMMER_START"]]);
+				*/				
+				
+				/*
+				data.boundaries["FALL_START"] = GetDayIndex(data, {month: "AUG", dayNumber: 28});
+				data.boundaries["FALL_END"] = GetDayIndex(data, {month: "DEC", dayNumber: 13});
+				data.boundaries["WINTER_END"] = GetDayIndex(data, {month: "JAN", dayNumber: 22});
+				data.boundaries["SPRING_START"] = GetDayIndex(data, {month: "JAN", dayNumber: 22});
+				data.boundaries["SPRING_END"] = GetDayIndex(data, {month: "MAY", dayNumber: 14}, true) ;
+				data.boundaries["SUMMER_START"] = GetDayIndex(data, {month: "MAY", dayNumber: 29}, true);
+				data.boundaries["SUMMER_END"] = 0 + data.boundaries["SUMMER_START"] + (12 * 7);
+							
+				
+				SetTypes(data);
+				updateData(data);
+				console.log(data);
+				console.log(checkRules(data));
+				console.log(data[data.convocation]);	
+				console.log(data[data.boundaries["FALL_START"]]);
+				console.log(filter(filter(data, data.boundaries["SPRING_START"], data.boundaries["SPRING_END"], isDay, ["FRI"]),
+					0, filter(data, data.boundaries["FALL_START"], data.boundaries["FALL_END"], isDay, ["FRI"]).length, isType, ["INST"]));
+					*/
+			console.log((new Date()).getMinutes() - start);
+			
+			
+				//var filter = [];
+
+				
+				//(possibilites[1][b] - possibilites[0][a] < (15*7))
+				//filter(data, possibilites[0][a], possibilites[1][b], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)/15 < 1;
+				
+				//(possibilites[1][b] - possibilites[0][a] > (17*7))
+				//filter(data, possibilites[0][a], possibilites[1][b], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)/16 > 1;
+				
+				//(possibilites[3][d] - possibilites[2][c] + tension < (15*7))
+				//filter(data, possibilites[2][c], possibilites[3][d], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)/15 < 1;
+				
+				//(possibilites[3][d] - possibilites[2][c] - tension > (17*7))
+				//;
+				
+				//filter(data, data.monthMarker["JANUARY"],  possibilites[2][c], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length - 
+					//filter(data, data.monthMarker["JANUARY"],  possibilites[2][c], isType, ["HOLI"]).length < 12;
+					
+				//filter(data, data.monthMarker["JANUARY"], possibilites[2][c], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length - 
+					//filter(data, data.monthMarker["JANUARY"], possibilites[2][c], isType, ["HOLI"]).length > 15;
+
+				
+
+				
+				//(((filter(data, possibilites[0][a], possibilites[1][b], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)) - 
+					//(filter(data, possibilites[0][a], possibilites[1][b], itType,["HOLI"].length))) + 
+					//(filter(data, possibilites[2][c], possibilites[3][d], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)) - 
+					//(filter(data, possibilites[2][c], possibilites[3][d], itType,["HOLI"].length))) < 145
+					
+				//(((filter(data, possibilites[0][a], possibilites[1][b], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)) - 
+					//(filter(data, possibilites[0][a], possibilites[1][b], itType,["HOLI"].length))) + 
+					//(filter(data, possibilites[2][c], possibilites[3][d], isDay,["MON", "TUE", "WED", "THU", "FRI"].length)) - 
+					//(filter(data, possibilites[2][c], possibilites[3][d], itType,["HOLI"].length))) > 149
+					
+				//((filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length -
+					//filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isType, ["HOLI"]).length) + 
+					//(filter(data, possibilites[2][c], possibilites[4][e], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length -
+					//filter(data, possibilites[2][c], possibilites[4][e], isType, ["HOLI"]).length) < 170)
+					
+				//((filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length -
+					//filter(data, data.previousYearEnd, data.holidayMarkers["CHRISTMAS"], isType, ["HOLI"]).length) + 
+					//(filter(data, possibilites[2][c], possibilites[4][e], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length -
+					//filter(data, possibilites[2][c], possibilites[4][e], isType, ["HOLI"]).length) > 180)
+					
+					
+				
+				//(possibilites[4][e] - possibilites[3][d] < 11)
+				//filter(data, possibilites[3][d], possibilites[4][e], isDay, ["MON", "TUE", "WED", "THU", "FRI"]).length - 
+					//filter(data, possibilites[3][d], possibilites[4][e], isType, ["HOLI"]).length < 9;
+			</script>
+</body>
+</html>

@@ -1,27 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1>Reserving: Dolphin and Sea Lion Trip</h1>
+	<div>
+		<form id="pp0" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="ANT69Y3PA93RQ">
+		<table>
+		<tr><td><input type="hidden" name="on0" value="Reservation Time:">Reservation Time:</td></tr><tr><td><select name="os0" id="os0">
+			<option value="9:00 am">9:00 am </option>
+			<option value="10:00 am">10:00 am </option>
+			<option value="11:15 am">11:15 am </option>
+			<option value="12:15 pm">12:15 pm </option>
+			<option value="1:30 pm">1:30 pm </option>
+			<option value="2:30 pm">2:30 pm </option>
+			<option value="3:45 pm">3:45 pm </option>
+		</select> </td></tr>
+		<tr><td><input type="hidden" name="on1" value="Reservation date:">Reservation date:</td></tr><tr><td><input type="text" name="os1" id="os1" maxlength="200"></td></tr>
+		<tr><td><input type="hidden" name="on2" value="Contact phone:">Contact phone:</td></tr><tr><td><input type="text" name="os2" id="os2" maxlength="200"></td></tr>
+		</table>
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+			
+			
+			
+			
+			<p id="name-input-error" class="error-hide">* Name required</p><br/>
+			<p id="email-input-error" class="error-hide">* Email required</p><br/>
+			<p id="phone-input-error" class="error-hide">* Valid phone number required</p><br/>
+			<p id="date-input-error" class="error-hide">* Future date required</p><br/>
+			<form id="custom-form" action="form_to_email.php" method="get">
+			<table>
+				<tr><td><span>Name:<span id="name-error" class="error-hide">*</span></span></td>
+					<td><span>Email:<span id="email-error" class="error-hide">*</span></span></td>
+					<td><span>Contact phone number:<span id="phone-error" class="error-hide">*</span></span></td></tr>
+				<tr><td><input type="text" name="name_entry" id="name-input" maxlength="50"></input></td>
+					<td><input type="text" name="email_entry" id="email-input" maxlength="50"></input></td>
+					<td><input type="text" name="phone_entry" id="phone-input"></td></tr>
+				<tr><td><span>Date to reserve:<span id="date-error" class="error-hide">*</span></span></td>
+					<td><span>Time to reserve:</span></td>
+					<td><span>Additional comments:</span></td></tr>
+				<tr><td><select type="text" name="month_entry" id="month-input"></select>
+					<select type="text" name="day_entry" id="day-input"></select>
+					<select type="text" name="year_entry" id="year-input"></select></td>
+					<td><select name="time_entry" id="time-input"><option value="1:30 pm">1:30 pm </option></select></td>
+					<td><textarea type="text" name="message_entry" id="message-input"></textarea></td></tr>
+				<tr><td><a align="center" onclick="customPPSubmit()"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif"></a></td>
+					<td><button type="submit" align="center">Pay Offline</button></td>
+					<td><button type="reset" align="center">Start Over</button></td></tr>
+				<tr class="error-hide"><td><span>Initiated PayPal:</span></td>
+					<td><select type="text" name="payment_entry" id="payment-input">
+						<option value="OFFLINE PAYMENT">OFFLINE PAYMENT</option>
+						<option value="PP PAYMENT STARTED">PayPal PAYMENT STARTED (confirm with PP)</option></select></td></tr>
+				<tr class="error-hide"><td><input id="item-input" type="text" value="Dolphin and Sea Lion Trip">Dolphin and Sea Lion Trip</input></td></tr>
+			</table>
+			</form>
+			
+
+	</div>
+			<script type="text/javascript"><!--//--><![CDATA[//><!--
+				
+				populateInputs();
+
+			//--><!]]></script>
+				
+				
+
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
 
-
 </head>
 <body>
+
+	<h1>Reserving: Dolphin and Sea Lion Trip</h1>
 	<div>
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="ANT69Y3PA93RQ">
-<table>
-<tr><td><input type="hidden" name="on0" value="Option test">Option test</td></tr><tr><td><select name="os0">
-	<option value="Option 1">Option 1 $1.00 USD</option>
-	<option value="Option 2">Option 2 $1.00 USD</option>
-	<option value="Option 3">Option 3 $1.00 USD</option>
-</select> </td></tr>
-<tr><td><input type="hidden" name="on1" value="Name">Name</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
-</table>
-<input type="hidden" name="currency_code" value="USD">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-	</div>
+		<form id="pp0" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="ANT69Y3PA93RQ">
+		<table>
+		<tr><td><input type="hidden" name="on0" value="Reservation Time:">Reservation Time:</td></tr><tr><td><select name="os0" id="os0">
+			<option value="9:00 am">9:00 am </option>
+			<option value="10:00 am">10:00 am </option>
+			<option value="11:15 am">11:15 am </option>
+			<option value="12:15 pm">12:15 pm </option>
+			<option value="1:30 pm">1:30 pm </option>
+			<option value="2:30 pm">2:30 pm </option>
+			<option value="3:45 pm">3:45 pm </option>
+		</select> </td></tr>
+		<tr><td><input type="hidden" name="on1" value="Reservation date:">Reservation date:</td></tr><tr><td><input type="text" name="os1" id="os1" maxlength="200"></td></tr>
+		<tr><td><input type="hidden" name="on2" value="Contact phone:">Contact phone:</td></tr><tr><td><input type="text" name="os2" maxlength="200"></td></tr>
+		</table>
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+		
+		
+		<p id="name-input-error" class="error-hide">* Name required</p><br/>
+		<p id="email-input-error" class="error-hide">* Email required</p><br/>
+		<p id="phone-input-error" class="error-hide">* Valid phone number required</p><br/>
+		<p id="date-input-error" class="error-hide">* Future date required</p><br/>
+		<form id="contactform" name="contactform" method="post" action="servertest.php">
+ 
+			<table width="450px">
+ 
+				<tr><td><span>Name:<span id="name-error" class="error-hide">*</span></span></td>
+					<td><span>Email:<span id="email-error" class="error-hide">*</span></span></td>
+					<td><span>Contact phone number:<span id="phone-error" class="error-hide">*</span></span></td></tr>
+				<tr><td><input type="text" name="name_entry" id="name-input" maxlength="50"></input></td>
+					<td><input type="text" name="email_entry" id="email-input" maxlength="50"></input></td>
+					<td><input type="text" name="phone_entry" id="phone-input"></td></tr>
+				<tr><td><span>Date to reserve:<span id="date-error" class="error-hide">*</span></span></td>
+					<td><span>Time to reserve:</span></td>
+					<td><span>Additional comments:</span></td></tr>
+				<tr><td><select type="text" name="month_entry" id="month-input"></select>
+					<select type="text" name="day_entry" id="day-input"></select>
+					<select type="text" name="year_entry" id="year-input"></select></td>
+					<td><select name="time_entry" id="time-input"><option value="1:30 pm">1:30 pm </option></select></td>
+					<td><textarea type="text" name="message_entry" id="message-input"></textarea></td></tr>
+				
+				<tr><td><a align="center" onclick="customPPSubmit()"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif"></a></td>
+					<td><button align="center" onclick="customSubmit()">Pay Offline</button></td>
+					<td><button type="reset" align="center">Start Over</button></td></tr>
+					
+				<tr class="error-hide"><td><span>Initiated PayPal:</span></td>
+					<td><select type="text" name="payment_entry" id="payment-input">
+						<option value="OFFLINE PAYMENT">OFFLINE PAYMENT</option>
+						<option value="PP PAYMENT STARTED">PayPal PAYMENT STARTED (confirm with PP)</option></select></td></tr>
+				<tr class="error-hide"><td><input name="item_entry" id="item-input" type="text" value="Dolphin and Sea Lion Trip">Dolphin and Sea Lion Trip</input></td></tr>
+				
+			</table>
+		</form>
+		<script type="text/javascript"><!--//--><![CDATA[//><!--
+			populateInputs();
+			//document.getElementById("contactform").submit();
+			//injectToPP();
+			//function customSubmit(){
+				//if(validate)
+					//document.getElementById("contactform").submit;
+			//}
+			//function customPPSubmit(){
+				//if(validate){
+					//document.getElementById("payment-input").selectedIndex = 1;
+					//injectToPP();
+					//document.getElementById("pp0").submit;
+					//document.getElementById("contactform").submit;
+				//}
+			//}
+			//console.log(document.getElementById("month-input").options[3].value);
+			//validate();
+			//document.getElementById("pp0").submit();
+			//customSubmit();
+			
+			if(document.getElementById("payment-input").selectedIndex == 1){
+				customSubmit();
+			}
+			function customPPSubmit(){
+
+			if(validate()){
+				document.getElementById("payment-input").selectedIndex = 1;
+				injectToPP();
+				document.getElementById("pp0").submit;
+				//document.getElementById("contactform").submit;
+			}
+		}
+		//--><!]]></script>	
+				
+
+	
 </body>
 </html>

@@ -1,0 +1,71 @@
+body {
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+label.checkbox-list {
+  display: block;
+}
+
+/*
+table tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+*/
+
+table {
+  table-layout: fixed;
+  padding: 2px;
+}
+
+table th,td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+th.right,td.right {
+  text-align: right;
+  vertical-align: middle;
+}
+
+th.column {
+  column-width: 100px;
+}
+/*"ACAD", "INST", "CONV", "COMM", "FINL", "HOLI", "WKND", "FILL", "OPEN", "UNK"*/
+td.ACAD {
+  background-color: #7ae4ff;
+}
+td.INST {
+  background-color: #ffffcc;
+}
+td.CONV {
+  background-color: #0099ff;
+}
+td.COMM {
+  background-color: #e3c1a3;
+}
+td.FINL {
+  background-color: #ffc7da;
+}
+td.HOLI {
+  background-color: transparent;
+  color: blue;
+}
+td.WKND {
+  background-color: transparent;
+}
+td.FILL {
+  /*background-color: #66ff99;*/
+  background-color: transparent;
+}
+td.OPEN {
+  background-color: mediumorchid;
+}
+td.UNK {
+  background-color: lightgrey;
+}

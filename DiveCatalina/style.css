@@ -1,0 +1,8 @@
+.error-hide {
+	color : red;
+	display : none;
+}
+.error-reveal{
+	color : red;
+	display : inline;
+}
