@@ -20,30 +20,23 @@
 				
 				
 				var startYear = 2015;
-				var data;
-				var errors= 0
-				for(var yay = 0; yay < 200; yay++){
-					console.log("YEAR:");
-					console.log(startYear + yay);
-					data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
-						"convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
-						"springFinalsMonday", "commencementBeforeMemorial"]);
-					
-					data = data.candidateEntryData;
-					console.log(data);
-					var testPoss = getPossibilities(data);
-					console.log(testPoss);
-					var success = applyPossibilities(data, testPoss);
-					console.log(success);
-					if(success[0].length == 0){
-						console.log("ERROR IN YEAR");
-						console.log(startYear + yay);
-						errors++;
-					}
-
-				}
-				console.log(errors);
+				var earliestStart = {month: "AUG", dayNumber: 21};
+				console.log("YEAR:");
+				console.log(startYear);
+				var data = constructCalendarData(startYear, earliestStart, ["fallStartMon", "summerToFallMoreThanWeek", 
+					"convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", 
+					"commencementBeforeMemorial"]);
 				
+				console.log(data);
+				console.log("SOFT RULES");
+				console.log(data.candidateEntryData.conditions);
+
+				//if(data[0].length == 0){
+				//	console.log("ERROR IN YEAR");
+				//	console.log(startYear + yay);
+				//}
+
+							
 		
 	
 /*				
