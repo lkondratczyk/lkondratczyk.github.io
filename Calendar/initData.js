@@ -4,7 +4,7 @@
 *	@param academicYear The starting year to be worked on
 *	@return Data for the gui and analyzer
 */
-function constructCalendarData(academicYear, startDate, conditions){	
+function constructCalendarData(academicYear, startDate, conditions, innerCall){	
 	//DATA AND FUNCTIONS
 
 	var Months = new Enum(["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]);
@@ -232,21 +232,15 @@ function constructCalendarData(academicYear, startDate, conditions){
 	data.candidateEntryData.conditions = TranslateConditions(data.candidateEntryData.conditions);
 	ExecuteProgram(data.candidateEntryData, startDate, data.candidateEntryData.conditions);
 
-	// data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
-		// "convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
-		// "springFinalsMonday", "commencementBeforeMemorial"]);
-					
-	var testPoss = getPossibilities(data.candidateEntryData);
-
-	var success = applyPossibilities(data.candidateEntryData, testPoss);
-	var bestCalendar = [];
-				
-	
-	if(success[0].length == 0){
-		console.log("IM SORRY");
-		console.log(success[1]);
-	}
-	else{
+	if((typeof innerCall == "undefined")|| innerCall == false){
+		
+		var testPoss = getPossibilities(data.candidateEntryData);
+		console.log(testPoss);
+		
+		var success = applyPossibilities(data.candidateEntryData, testPoss);
+		console.log(testPoss);
+		
+		var bestCalendar = [];
 		bestCalendar = success[0][0];
 
 	
@@ -262,8 +256,14 @@ function constructCalendarData(academicYear, startDate, conditions){
 		console.log(bestCalendar);
 		return data;
 	}
+	else{
 
-	return data;
+		return data;
+	}
+	// data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
+		// "convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
+		// "springFinalsMonday", "commencementBeforeMemorial"]);
+
 }//end creation of data
 
 function SetConditions(candidateEntry, previousYearEnd, softRules){
@@ -1230,6 +1230,7 @@ function getPossibilities(data){
 		return initialIndex;
 	}
 		
+	console.log(countPossibilities([fallStarts, fallEnds, winterEnds, springEnds, summerStarts]));
 	return [fallStarts, fallEnds, winterEnds, springEnds, summerStarts];
 }
 
@@ -1319,7 +1320,7 @@ function applyPossibilities(data, possibilites){
 												possibleCalendar = constructCalendarData(
 													data[0].year, 
 													data[data.previousYearEnd],
-													intToAnne(data.conditions));
+													intToAnne(data.conditions), true);
 													
 												possibleCalendar.candidateEntryData.boundaries["FALL_START"] = 0 + possibilites[0][a];						
 												possibleCalendar.candidateEntryData.boundaries["FALL_END"] = 0 + possibilites[1][b];
@@ -1327,7 +1328,8 @@ function applyPossibilities(data, possibilites){
 												possibleCalendar.candidateEntryData.boundaries["SPRING_START"] = 0 + possibilites[2][c];
 												possibleCalendar.candidateEntryData.boundaries["SPRING_END"] = 0 + possibilites[3][d];
 												possibleCalendar.candidateEntryData.boundaries["SUMMER_START"] = 0 + possibilites[4][e];
-												possibleCalendar.candidateEntryData.boundaries["SUMMER_END"] = 0 + possibleCalendar.boundaries["SUMMER_START"] + (12 * 7);
+												possibleCalendar.candidateEntryData.boundaries["SUMMER_END"] = 
+													0 + possibleCalendar.candidateEntryData.boundaries["SUMMER_START"] + (12 * 7);
 												SetTypes(data);
 												updateData(data);
 												
