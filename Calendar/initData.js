@@ -232,8 +232,12 @@ function constructCalendarData(academicYear, startDate, conditions, innerCall){
 	data.candidateEntryData.conditions = TranslateConditions(data.candidateEntryData.conditions);
 	ExecuteProgram(data.candidateEntryData, startDate, data.candidateEntryData.conditions);
 
-	if((typeof innerCall == "undefined")|| innerCall == false){
-		
+	
+	if((typeof innerCall == "undefined")|| innerCall == true){
+		return data;
+	}
+	else{
+				
 		var testPoss = getPossibilities(data.candidateEntryData);
 		console.log(testPoss);
 		
@@ -256,10 +260,7 @@ function constructCalendarData(academicYear, startDate, conditions, innerCall){
 		console.log(bestCalendar);
 		return data;
 	}
-	else{
-
-		return data;
-	}
+	
 	// data = constructCalendarData(startYear + yay, earliestStart, ["weekdayIdNum", "fallStartMon", "summerToFallMoreThanWeek", 
 		// "convocationFriBeforeFirstID", "extendedFallBreak", "commencementTueFri", "CesarChavezInSpringBreak", "fallFinalsMonday", 
 		// "springFinalsMonday", "commencementBeforeMemorial"]);
