@@ -26,13 +26,9 @@
 			FINL: 'Finals',
 			HOLI: 'Holiday',
 			WKND: 'Weekend',
-			FALLSTART: 'Semester Start',
+			FALLSTART: 'Semester Start'
 //			FILL: 'Fill',
-
-
-			OPEN: 'Open'
-			
-			
+//			OPEN: 'Open',
 //			UNK: 'Unknown'
 		};
 
@@ -48,11 +44,7 @@
 			"Spring semester must end on or before May 31",
 			"Summer session must start after May 31 and end before Aug 31",
 			"2-5 days between Convocation and the beginning of Fall semester",
-			
-			
-			"10-15 Winter session Instructional Days",
-			
-			
+			"12-15 Winter session Instructional Days",
 			"Summer session is at least 12 calendar weeks",
 			"4 days between the end of Spring finals and before Summer start date are reserved for Commencement",
 			"Spring Break is a calendar week",
@@ -74,13 +66,7 @@
 			CesarChavezInSpringBreak: 'Attempt to put Cesar Chavez Day in Spring Break',
 			springFinalsMonday: 'Spring semester finals start on a Monday - NEW',
 			commencementTueFri: 'Commencement is Tuesday - Friday',
-			commencementBeforeMemorial: 'Commencement is before Memorial Day - NEW',
-			
-			
-			limitWinterTenDays: "Limit winter session to 10 days long"
-			springAfterMLK: "Spring start after MLK"
-			
-			
+			commencementBeforeMemorial: 'Commencement is before Memorial Day - NEW'
 		};
 
         vm.getCalendar = function(){
