@@ -1,7 +1,12 @@
+// This file handles form validation for reservation forms and 
+// submission of reservations forms and PayPal forms
+
+/*
+*	Takes field data from the preselected paypal options and builds
+*	selection lists for the reservation form
+*/
 function populateInputs(){		
-	
 	document.getElementById("payment-input").selectedIndex = 0;
-	
 	function timeOptions(){
 		var options = [];
 		var getoptions = document.getElementById("os0");
@@ -15,6 +20,13 @@ function populateInputs(){
 	populateInput(timeOptions(), timeSelect);
 }
 
+/*
+*	Takes a selection reference and list of options, populating the 
+*	selection with the options
+*
+*	@param newOptions The options to seed the selection
+*	@param optionParent The selection to be populated
+*/
 function populateInput(newOptions, optionParent){
 	while (optionParent.options.length > 0) { 
 		optionParent.options.remove(0); 
@@ -28,6 +40,14 @@ function populateInput(newOptions, optionParent){
 	}
 }
 
+/*
+*	For forms with drop down date selection, this preselects the options to
+*	reflect the current date
+*
+*	@param month The currnet month
+*	@param day	The current day
+*	@param year	The current year
+*/
 function setDefaultDate(month, day, year){
 	var today = new Date();
 	month.selectedIndex = today.getMonth();
@@ -35,6 +55,12 @@ function setDefaultDate(month, day, year){
 	year.selectedIndex = 0;
 }
 
+/*
+*	For forms with drop down dates, this populates the day selector with the number 
+*	of days in the selected month
+*
+*	@param limit The number of days in the month
+*/
 function getDaySet(limit){
 	var dateSet = [];
 	for(var i = 1; i <= limit; i++){
@@ -46,6 +72,10 @@ function getDaySet(limit){
 	return dateSet;
 }
 
+/*
+*	For forms with drop down dates, this populates the year selector with 5 
+*	years into the future
+*/
 function getYearSet(){
 	var yearSet = [];
 	var thisYear = (new Date()).getFullYear();
@@ -55,6 +85,11 @@ function getYearSet(){
 	return yearSet;
 }
 
+/*
+*	Handles injection of reservation form to PayPal form to be reflected in receipt
+*
+*	@param selection Left over parameter to handle selection of submission between multiple PayPal forms
+*/
 function injectToPP(selection){
 	if(selection == 0){
 		document.getElementById("os0").selectedIndex = document.getElementById("time-input").selectedIndex;
@@ -65,43 +100,44 @@ function injectToPP(selection){
 			document.getElementById("os1").value = 	document.getElementById("month-input").value;
 			document.getElementById("os1").value += "/" + document.getElementById("day-input").value;
 			document.getElementById("os1").value += "/" + document.getElementById("year-input").value;
-		}
-
-		
+		}		
 		document.getElementById("os2").value = document.getElementById("name-input").value;
 		document.getElementById("os2").value += " "	
 		document.getElementById("os2").value += document.getElementById("phone-input").value;		
 	}
 	else{
 		document.getElementById("os0b").selectedIndex = document.getElementById("time-input").selectedIndex;
-		
 		document.getElementById("os1b").value = 	document.getElementById("datepicker").value; 
-		
 		document.getElementById("os2b").value = document.getElementById("name-input").value;
-		document.getElementById("os2b").value += " "	
+		document.getElementById("os2b").value += " ";
 		document.getElementById("os2b").value += document.getElementById("phone-input").value;		
 	}
 }
 
+/*
+*	Runs the regular validations before form submission
+*/
 function validate(){
 	var success = true;
-	if(!validateName(success)){
+	if(!validateName()){
 		success = false;
 	}
-	if(!validateEmail(success)){
+	if(!validateEmail()){
 		success = false;
 	}
-	if(!validatePhone(success)){
+	if(!validatePhone()){
 		success = false;
 	}
-	if(!validateDate(success)){
+	if(!validateDate()){
 		success = false;
 	}
-	
 	return success;
 }
 
-function validateName(success){
+/*
+*	Validates the name input on the reservation form
+*/
+function validateName(){
 	if(document.getElementById("name-input").value.length < 1){
 		document.getElementById("name-error").className = "error-reveal";
 		document.getElementById("name-input-error").className = "error-reveal";
@@ -114,6 +150,9 @@ function validateName(success){
 	}
 }
 
+/*
+*	Basic email validation for the reservation form
+*/
 function validateEmail(){
     var re = /[^\s@]+@[^\s@]+\.[^\s@]+/
     if(!re.test(document.getElementById("email-input").value)){
@@ -128,6 +167,9 @@ function validateEmail(){
 	}
 }
 
+/*
+*	Basic phone validation for the reservation form
+*/
 function validatePhone(){
 	if(!checkDigits(document.getElementById("phone-input").value)){
 		document.getElementById("phone-error").className = "error-reveal";
@@ -141,6 +183,11 @@ function validatePhone(){
 	}
 }
 
+/*
+*	Phone validation helper function to check and count digits
+*
+*	@param phone The number to be checked
+*/
 function checkDigits(phone){
 	var isValid = true;
 	var digitCount = 0;
@@ -167,7 +214,10 @@ function checkDigits(phone){
 	return true;
 }
 
-function validateDate(success){
+/*
+*	Basic date validation for the reservation form. Must be a future date.
+*/
+function validateDate(){
 	var validDate = true;
 	var currentDate = new Date();
 	var reservation = document.getElementById("datepicker");
@@ -229,6 +279,9 @@ function validateDate(success){
 	return success;
 }
 
+/*
+*	Handles submission of the reservation form only. Uses Ajax for asynchronous submission
+*/
 function customSubmit(){
 	if(validate() == true){
 		var f = document.getElementById("contactform");
@@ -249,7 +302,9 @@ function customSubmit(){
 	}
 }
 
-
+/*
+*	Handles submission of the reservation form and PayPal form. Uses Ajax for asynchronous submission
+*/
 function customPPSubmit(){
 	if(validate()){
 		document.getElementById("payment-input").selectedIndex = 1;
@@ -269,28 +324,3 @@ function customPPSubmit(){
 		document.getElementById("pp0").submit();
 	}
 }
-
-function customEquipmentSubmit(duration){
-	if(validate(duration)){
-		document.getElementById("payment-input").selectedIndex = 1;
-		injectToPP(duration);
-		var f = document.getElementById("contactform");
-		var postData = [];
-		for (var i = 0; i < f.elements.length; i++) {
-			postData.push(f.elements[i].name + "=" + f.elements[i].value);
-		}
-		//for asynchronous requests
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "servertest.php", true);
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-		xhr.send(postData.join("&"));
-
-		document.getElementById("pp" + duration).submit();
-	}
-}
-
-
-
-
-
