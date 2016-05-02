@@ -1,205 +1,557 @@
-.sidebar-header {
-  height: 76px;
-}
+/*
+ * All styling for the presentation.
+ */
 
-.header-image {
-  height: 56px;
-  width: 224px;
-  padding: 10px 20px;
-  background: #000;
-}
 
-.sidebar-header-title {
-  padding: 10px;
-  font-family: sans-serif;
-  color: #a7a5a4;
-  font-size: 16px;
-  line-height: 24px;
-}
 
-#tabList { 
-  overflow-y:scroll; 
-  width : 100%;
-  height: calc(100% - 145px);
-}
+ /*
+  * Global
+  */
 
-.Map {
-  position : absolute;
-  top : 0;
-  right : 0;
-  width : 100%;
-  height : 100%;
-}
-.Sidebar {
-  width: 264px;
-  top: 0;
-  left: 0;
-  position : absolute;
-  height : 100%;
-  background: #312d2d;
-  overflow: hidden;
-}
-
-.neighborhood-menu-item {
-  display: block;
-  font-size: 14px;
-  line-height: 21px;
-  padding: 5px 10px;
-  font-family: sans-serif;
-  color: #a7a5a4;
-  border-top: 1px solid #3a3737;
-  border-bottom: 1px solid #3a3737;
-}
-
-.neighborhood-menu-item:hover {
-  background: #34aadc;
-  color: #fff;
-}
-
-.neighborhood-menu-item.is-active {
-  background: #34aadc;
-  color: #fff;
-  border-top: 1px solid #1d61f0;
-  border-bottom: 1px solid #1d61f0;
-}
-
-.leaflet-popup {
-  width: 400px;
-}
-
-	.leaflet-popup-content {
-	}
-
-		.leaflet-popup-content-img-div{
-		  position: relative;
-		  display: inline;
-		  width : 100%;
-		  crop : 
-		}
-		
-			.leaflet-popup-content img {
-			  position : relative;
-			  width: 100%;
-			  z-index : 1;
-			}
-
-			.leaflet-popup-content-attribution {
-			  background: #f6f6f6;
-			  position : absolute;
-			  bottom : 0;
-			  left : 0;
-			  z-index : 2;
-			  padding: 2px 5px;
-			}
-
-      .leaflet-popup-content-attribution a {
-        color: #b2b2b2;
-      }
-
-	.leaflet-popup-close-button-custom {
-    border: 2px solid #000;
-    border-radius: 50%;
-    background-color: #fff;
-		position : absolute;
-    top: -10px;
-    right: -10px;
-		z-index : 2;
-		background-position: -3px -55px;
-    line-height: 0;
-    padding: 10px 5px 13px 5px;
-    font-size: 22px;
-    cursor: pointer;
-	}
-  .leaflet-popup-close-button-custom:hover {
-    border: 2px solid #ac3020;
-    background-color: #ac3020;
-    color: #fff;
+  html {
+    font-family: 'Roboto', sans-serif;
   }
-	.leaflet-popup-header{
+
+  body {
+    background-image: url("images/gplaypattern.png");
+  }
+
+  h1, h2, h3, h4 {
+  	text-align:center;
+  }
+
+
+.section {
+    background-color: white;
+   	border: 1px solid black;
+   	width:90%;
+   	height:auto;
+   	margin: 100px auto;
+   	position:relative;
+   }
+
+   #title h1{
+     font-size: 300%;
+     margin-top: 11%;
+     font-family: 'Sigmar One', cursive;
+   }
+
+   /*
+   * Allen
+   */
+
+
+   .w3-navbar {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   }
+
+   .w3-navbar a {
+     color: white;
+     text-decoration: none;
+   }
+
+   .w3-navbar li {
+       float: left;
+       margin: 15px;
+       width: 29%;
+       text-align: center;
+   }
+
+   .w3-black {
+     color: white;
+     background-color: #000;
+   }
+
+   .w3-red {
+     color: black;
+     background-color: white;
+   }
+
+   .img-left {
+     display: block;
+     float: left;
+     margin: 0 0 5% 0;
+     padding: 0 2%;
+   }
+
+   .img-right {
+     display: block;
+     float: right;
+     margin: 0 0 5% 0;
+     padding: 0 2%;
+   }
+
+   .clear {
+     clear: both;
+   }
+
+   #carmargin {
+     margin-left: 500px;
+   }
+
+   .centered {
+     display: block;
+     margin: 0 auto;
+   }
+
+   .highlight {
+     background-color: blue;
+     color: white;
+     margin: 0 430px 10px;
+     padding: 5px 0 5px;
+   }
+
+   .cd-container {
+     width: 95%;
+     max-width: 1170px;
+     margin: 0 auto;
+   }
+
+   .cd-container::after {
+     content: '';
+     display: table;
+     clear: both;
+   }
+
+   .cd-timeline-content {
+     margin-left: 80px;
+   }
+
+   #cd-timeline {
+     position: relative;
+     padding: 1em 0;
+     margin-bottom: 2em;
+   }
+
+   #cd-timeline li {
+     margin: 0 0 15px 0;
+   }
+
+   #cd-timeline h2 {
+     text-align: left;
+   }
+
+    #cd-timeline a {
+     width: 100%;
+     margin-left: 43%;
+   }
+   #cd-timeline a:visited {
+     color: black;
+   }
+
+   #cd-timeline::before {
+     /* this is the vertical line */
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 18px;
+     height: 100%;
+     width: 4px;
+     background: #d7e4ed;
+   }
+
+   .cd-timeline-block {
+     position: relative;
+     margin: 2em 0;
+   }
+   .cd-timeline-block:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   .cd-timeline-block:first-child {
+     margin-top: 0;
+   }
+   .cd-timeline-block:last-child {
+     margin-bottom: 0;
+   }
+
+   .cd-timeline-img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 40px;
+     height: 40px;
+
+   }
+
+   .cd-timeline-img span {
+     display: block;
+     width: 24px;
+     height: 24px;
+     position: relative;
+     left: 50%;
+     top: 50%;
+     margin-left: -25px;
+     margin-top: -19px;
+     color: #c03b44;
+     font-size: 150%;
+     font-weight: bold;
+   }
+
+   #Paris ul {
+     margin: 5%;
+   }
+   #Paris li {
+     margin: 5%;
+   }
+   #Tokyo table {
+     width: 100%;
+     margin: 5%;
+   }
+   #Tokyo h2 {
+     text-align: left;
+   }
+   #Tokyo img {
+     width: 100%;
+   }
+
+
+  /*
+   * Drew
+   */
+
+	.dHeader {
+		display:table;
+		width:100%;
+		height:15%;
 	}
-	.leaflet-popup-linkgroup{
+
+	#drew h1 {
+		display:table-cell;
+		vertical-align: middle;
+		text-align:center;
 	}
-	.leaflet-popup-description{
+	.dContent {
+		width: 100%;
+		height:75%;
 	}
-	.leaflet-popup-link-group{
+	
+	.dFooter {
+		display:table;
+		width:100%;
+		height:10%;
+	}
+	
+	.source {
+		display:table-cell;
+		text-align:center;
+		vertical-align:middle;
 	}
 
-.footer-attribution {
-  background-color: #000;
-  padding: 5px 10px;
-}
+   #drew {
+   		font-family: Avenir, Helvetica, sans-serif;
+   		overflow:hidden;
+   	}
 
-.footer-attribution-text {
-  color: #a7a5a4;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
-}
+   	#drew h1 {
+   		font-size:36px;
+   	}
 
-.footer-attribution-link, .footer-attribution-link:visited {
-  color: #34aadc;
-}
+   .drewSN {
+   		position:absolute;
+   		top:0;
+   		left:0;
+   		display:block;
+   		margin:0;
+   		transition: all 500ms linear;
+   	}
 
-.footer-attribution-link.mod-badger, .footer-attribution-link.mod-badger:visited {
-  color: #c23615;
-}
+   	#speeding {
+   		display:block;
+   		margin:50px auto;
+   		width:80%;
+   	}
 
-/*
- * CSS animated rainbow dividers of awesome 
- * by Chris Heilmann @codepo8 and Lea Verou @leaverou 
-**/
-@-moz-keyframes rainbow {
-  from { background-position:top left; } 
-  to {background-position:top right; }
-}
-@-webkit-keyframes rainbow { 
-  from { background-position:top left; }  
-  to { background-position:top right; }  
-}
-@-o-keyframes rainbow { 
-  from { background-position:top left; }  
-  to { background-position:top right; }  
-}
-@-ms-keyframes rainbow { 
-  from { background-position:top left; }  
-  to { background-position:top right; }  
-}
-@-khtml-keyframes rainbow { 
-  from { background-position:top left; }  
-  to { background-position:top right; }  
-}
-@keyframes rainbow { 
-  from { background-position:top left; }  
-  to { background-position:top right; }  
-}
-#Castro{
-  color: #fff;
-  background-image:-webkit-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  background-image:-moz-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  background-image:-o-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  background-image:-ms-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  background-image:-khtml-linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  background-image:linear-gradient( left, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0),
-                                          rgb(255, 255, 0), rgb(255, 0, 0) );
-  -moz-animation:rainbow 2.5s forwards linear infinite;
-  -webkit-animation:rainbow 2.5s forwards linear infinite;
-  -o-animation:rainbow 2.5s forwards linear infinite;
-  -khtml-animation:rainbow 2.5s forwards linear infinite;
-  -ms-animation:rainbow 2.5s forwards linear infinite;
-  -lynx-animation:rainbow 2.5s forwards linear infinite;
-  animation:rainbow 2.5s forwards linear infinite;
-  background-size:50% auto;
-}
-#tongue{position:cheek;}
-/* ^ OMG! An ID! That kills performance! */
+   	#drewTopics {
+   		width:50%;
+   		margin:40px auto;
+   	}
+   	
+   	#carStackContent {
+   		display:block;
+   		background:url(images/car_stack.png) no-repeat center center;
+   		background-size: 94% auto;
+   	}	
 
-/*
-  .catchadream:after{content:'廌'}
+	#intersectContent {
+   		display:block;
+   		background:url(images/speeding_cartoon.jpeg) no-repeat center center;
+   		background-size: 90% auto;
+   	}
+   	
+   .tbl {
+   		display:block;
+   		width:75%;
+   		margin:auto;
+   		height:100%;
+   }
 
-*/
-/* ^ uncomment to add unicorn */
+   .tblr {
+   		display:inline-block;
+   		width:100%;
+   	}
+
+   	.tblc {
+   		text-align:center;
+   		display:inline-block;
+   		width:49%;
+   	}
+
+   	 .tblc1 {
+   		text-align:center;
+   		display:inline-block;
+   		width:100%;
+   	}
+
+   	.tblc3 {
+   		text-align:center;
+   		display:inline-block;
+   		width:32%;
+   	}
+
+   	.tbl p {
+		margin:20px 0;
+   	 }
+
+   	.lgnum {
+   		font-size:60px;
+   	}
+
+   	.smtext {
+   		font-style:italic;
+   	}
+
+   	/* List Styling */
+
+   	.srclst {
+   		padding:0;
+		text-align:center;
+   		list-style:none;
+   	}
+
+	#vidContent {
+		display:table;
+	}
+	
+	#googleVidWrapper {
+		display:table-cell;
+		vertical-align: middle;
+		text-align:center;
+		width:100%;
+		height:100%;
+	}
+	
+  	#googleVid {
+  		width:680px;
+  		height:382px;
+  	}
+
+
+   	#futureTxt, #sensorsTxt {
+   		display:block;
+		float:left;
+   		width:30%;
+   		margin:0;
+   		padding:0 2%;
+   	}
+
+   	#futureTxt ol li, #sensorsTxt ol li {
+   		margin:20px auto;
+   	}
+
+   	.focus {
+   		font-weight:bold;
+   	}
+
+   	.emph {
+   		font-style: italic;
+   	}
+
+ 	#trolleyQs {
+ 	display:block !important;
+ 		width:100%;
+ 		height: 100%;
+ 		margin:auto;
+ 	}
+
+  	#trolleyImg {
+		display:block;
+		margin: 100px auto 50px auto;
+		width:75%;
+  	}
+
+  	#trolleyQuote {
+  		font-size:15px;
+  		font-style:italic;
+  		width:100%;
+  		text-align:center;
+  	}
+
+	#map {
+		width: 100%;
+		height: 100%;
+	}
+
+  	.lineConnect {
+  		fill: none;
+		stroke-width: 1px;
+		stroke: white;
+		opacity: 0;
+	}
+
+	.point {
+		fill: red;
+		opacity: 0;
+		transition: all 1000ms linear;
+	}
+
+
+	#drewLgnd {
+		position:absolute;
+		top: 500px;
+		left:50px;
+		z-index:1000;
+	}
+
+	#drewCntrl {
+		position:absolute;
+		top: 20px;
+		right:40px;
+		z-index:1000;
+		width:300px;
+		height:80px;
+		opacity:0;
+		display:block;
+		background-color:black;
+		border:1px solid white;
+		transition:opacity 500ms linear;
+	}
+
+	.ctrlbox {
+		width:33%;
+		height:100%;
+		display:block;
+		float:left;
+	}
+
+	#controls {
+		border-right:1px solid white;
+	}
+
+
+	#nextYear, #prevYear {
+		margin:0;
+		padding:0;
+		height:29%;
+		width:50%;
+		display:block;
+		border:none;
+		background-color:white;
+		color:black;
+		float:left;
+	}
+
+	#nextYear {
+		border-left:1px solid black;
+	}
+
+	#prevYear {
+		border-right:1px solid black;
+	}
+
+	.lbl {
+		color:white;
+		font-size:12px;
+		display:block;
+		width:100%;
+		height:20%;
+		text-align:center;
+		font-family:sans-serif;
+		margin:10% 0 0 0;
+
+	}
+
+	.val {
+		color:white;
+		margin:0 0 0 0;
+		font-size:24px;
+		display:block;
+		width:100%;
+		height:40%;
+		text-align:center;
+		font-family:sans-serif;
+	}
+
+	.sval {
+		color:white;
+		margin:10% 0 0 0;
+		font-size:26px;
+		display:block;
+		width:100%;
+		height:60%;
+		text-align:center;
+		font-family:sans-serif;
+	}
+
+	.accident {
+		fill:yellow;
+	}
+
+	#swipeLeft {
+		width:10%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:9999;
+		opacity:0;
+		transition: all 250ms linear;
+	}
+
+	#swipeRight {
+		width:10%;
+		height:100%;
+		position:absolute;
+		top:0;
+		right:-1px;
+		z-index:9999;
+		opacity:0;
+		transition: all 250ms linear;
+	}
+
+	#swipeLeftText, #swipeRightText {
+	  	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	height: 30%;
+    	width: 50%;
+    	margin: -15% 0 0 -25%;
+    	font-size:40px;
+	}
+
+	#swipeLeft:hover {
+		background-color:black;
+		color:white;
+		opacity:0.75;
+	}
+
+	#swipeRight:hover {
+		background-color:black;
+		color:white;
+		opacity:0.75;
+	}
+
+	.source {
+		display:block;
+		width:100%;
+		text-align: center;
+	}
+
+	.pad {
+		width:100%;
+		height:20%;
+	}
